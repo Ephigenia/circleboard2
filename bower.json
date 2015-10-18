@@ -1,0 +1,16 @@
+{
+  "name": "visono-m3-web-client",
+  "description": "m3 web-application for media asset management",
+  "version": "0.0.12",
+  "private": true,
+  "license": "proprietary",
+  "dependencies": {
+    "angular": "~1.4",
+    "angular-loader": "~1.4",
+    "angular-mocks": "~1.4",
+    "angular-route": "~1.4",
+    "angular-translate": "~2.7",
+    "animate.css": "~3.4.0"
+  },
+  "devDependencies": {}
+}

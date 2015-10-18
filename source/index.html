@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" ng-app="m3App">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CircleStatus</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cyborg/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+</head>
+<body style="padding-top: 70px;">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/#/">
+          CircleBoard
+        </a>
+      </div>
+      <a class="pull-right btn btn-default navbar-btn btn-xs" href="/#/config">
+        <i class="glyphicon glyphicon-cog"></i>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div ng-view="" id="ng-view"></div>
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- libs -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+
+  <!-- app -->
+  <script src="scripts/App.js"></script>
+  <script src="scripts/AppController.js"></script>
+  <script src="scripts/ConfigController.js"></script>
+
+</body>
+</html>

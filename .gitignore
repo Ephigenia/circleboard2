@@ -1,0 +1,19 @@
+# please keep this file updated and checked most of the times, ask other
+# team members if you’re unsure about changes here
+
+!.gitkeep
+tmp
+.DS_Store
+.idea
+
+# nodejs
+# ------
+# Dependency directory
+# Commenting this out is preferred by some people, see
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules
+npm-debug.log
+
+# bower
+# -----
+source/bower_components
