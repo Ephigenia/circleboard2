@@ -1,6 +1,6 @@
 {
-  "name": "circleci",
-  "version": "1.0.0",
+  "name": "circleboard",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,12 @@
     "prestart": "npm install",
     "start": "node_modules/http-server/bin/http-server source -p 8000 -c-1"
   },
-  "author": "",
+  "contributors": [
+    {
+      "name": "Marcel Eichner",
+      "email": "marcel.eichner@ephigenia.de"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
   	"bower": "^1.5.3",
