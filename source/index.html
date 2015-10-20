@@ -16,9 +16,19 @@
       <a class="pull-left navbar-brand" href="/#/">
         CircleBoard
       </a>
-      <a class="pull-right btn btn-default navbar-btn btn-xs" href="/#/config">
-        <i class="glyphicon glyphicon-cog"></i>
-      </a>
+      <div class="btn-toolbar pull-right navbar-btn">
+        <div class="btn-group navbar-btn">
+          <a class="btn btn-default " ng-click="increaseFontSize()">
+            <i class="glyphicon glyphicon-plus-sign"></i>
+          </a>
+          <a class="btn btn-default" ng-click="decreaseFontSize()">
+            <i class="glyphicon glyphicon-minus-sign"></i>
+          </a>
+        </div>
+        <a class="btn btn-default navbar-btn" href="/#/config">
+          <i class="glyphicon glyphicon-cog"></i>
+        </a>
+      </div>
     </div>
   </nav>
 
