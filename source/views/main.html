@@ -1,7 +1,11 @@
-<div class="alert-info text-center animated fadeInDown" ng-show="countdown <= 5" style="position: absolute; width: 100%; top: 50px; left: 0px;">
+<div class="alert-info text-center animated fadeInDown" ng-show="countdown <= 5" style="position: absolute; width: 100%; top: 0px; left: 0px;">
   Refresh in <span class="countdown">{{countdown}}</span>s
 </div>
-<table class="table table-responsive table-striped">
+<div class="alert alert-warning" ng-if="!config.apiToken">
+  This is probably the first time you’ve started CircleBoard. To make it work
+  you’ll need to <a href="#config">set a API Token in the Configuration first</a>.
+</div>
+<table class="table table-responsive table-striped" ng-if="config.apiToken">
   <thead>
     <tr>
       <th>Time</th>

@@ -24,4 +24,5 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.run(function($rootScope, $location, $http, $log) {
 
+
 });

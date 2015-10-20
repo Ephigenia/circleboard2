@@ -12,6 +12,7 @@
     '$log',
     '$http',
     '$q',
+    'Config'
   ];
 
   function AppController(
@@ -19,10 +20,16 @@
     $scope,
     $log,
     $http,
-    $q
+    $q,
+    Config
   ) {
 
-    var APITOKEN = window.localStorage.getItem('apiToken');
+    var APITOKEN = Config.apiToken;
+    var REFRESH_INTERVAL = Config.refreshInterval;
+
+    $scope.builds = [];
+    $scope.countdown = 1;
+    $scope.config = Config;
 
     // https://circleci.com/docs/api#recent-builds-project
     function fetchRecentBuilds() {
@@ -44,27 +51,33 @@
       return deferred.promise;
     }
 
-    $scope.builds = [];
-    $scope.builds.push({id: 12});
-
     function update() {
       fetchRecentBuilds().then(function(builds) {
         $scope.builds = builds;
       });
     }
 
-    var refreshEverySeconds = 20;
-    $scope.countdown = 1;
-
-    // countdown
-    window.setInterval(function() {
-      $scope.countdown--;
-      if ($scope.countdown < 0) {
-        update();
-        $scope.countdown = refreshEverySeconds;
+    $scope.refreshInterval = null;
+    function startPolling() {
+      // countdown
+      $scope.refreshInterval = window.setInterval(function() {
+        $scope.countdown--;
+        if ($scope.countdown < 0) {
+          update();
+          $scope.countdown = REFRESH_INTERVAL;
+        }
+        $scope.$apply();
+      }, 1000);
+    }
+    function stopPolling() {
+      if ($scope.refreshInterval) {
+        window.clearInterval($scope.refreshInterval);
       }
-      $scope.$apply();
-    }, 1000);
+    }
+
+    if (Config.apiToken) {
+      startPolling();
+    }
 
   }
 

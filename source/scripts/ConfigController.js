@@ -9,22 +9,22 @@
   ConfigController.$inject = [
     '$rootScope',
     '$scope',
-    '$log'
+    '$log',
+    'Config'
   ];
 
   function ConfigController(
     $rootScope,
     $scope,
-    $log
+    $log,
+    Config
   ) {
 
-    $scope.config = {
-      apiToken: window.localStorage.getItem('apiToken')
-    };
+    $scope.config = Config;
 
     $scope.save = function() {
-      $log.log('Setting apiToken to "%s"', $scope.config.apiToken);
-      window.localStorage.setItem('apiToken', $scope.config.apiToken);
+      $log.log('saving config', Config);
+      $scope.config.save();
     };
 
   }

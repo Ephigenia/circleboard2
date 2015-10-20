@@ -15,6 +15,18 @@
       />
     </div>
     <div class="form-group">
+      <label class="control-label" for="refreshInterval">Refresh Interval</label>
+      <input
+        class="form-control"
+        id="refreshInterval"
+        type="number"
+        min="20"
+        max="1000"
+        name="refreshInterval"
+        ng-model="config.refreshInterval"
+      />
+    </div>
+    <div class="form-group">
       <button type="submit" class="btn btn-primary" ng-click="save()">SAVE</button>
     </div>
   </form>
