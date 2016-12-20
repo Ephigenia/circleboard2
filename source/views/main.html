@@ -1,0 +1,55 @@
+<div class="alert-info text-center animated fadeInDown" ng-show="countdown <= 5" style="position: absolute; width: 100%; top: 0px; left: 0px; z-index: 99999">
+  Refresh in <span class="countdown">{{countdown}}</span>s
+</div>
+<div class="alert alert-warning" ng-if="!config.apiToken">
+  This is probably the first time you’ve started CircleBoard. To make it work
+  you’ll need to <a href="#config">set a API Token in the Configuration first</a>.
+</div>
+<table class="table table-responsive table-striped" ng-if="config.apiToken">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Revision</th>
+      <th>Project &amp; Branch</th>
+      <th>Author</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="build in builds" ng-class="{
+        'danger': build.outcome == 'failed'
+      }">
+      <td>
+        <time ng-if="!build.stop_time">{{build.start_time | date:'MMM/dd HH:mm'}}</time>
+        <time ng-if="build.stop_time">{{build.stop_time | date:'MMM/dd HH:mm'}}</time>
+        <br>
+        <span class="text-muted" ng-if="build.build_time_millis">{{build.build_time_millis/1000}}s</span>
+      </td>
+      <td>
+        {{build.vcs_revision.substr(0,7)}}
+      </td>
+      <td>
+        <strong>{{build.reponame}} {{build.branch}}</strong><br>
+        <span class="text-muted">{{build.subject}}</span>
+      </td>
+      <td>
+        {{build.author_name}}
+      </td>
+      <td>
+        <span class="label" ng-if="build.lifecycle == 'finished'" ng-class="{
+          'label-success': ['success'].indexOf(build.outcome) > -1,
+          'label-warning': ['canceled', 'no_tests'].indexOf(build.outcome) > -1,
+          'label-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf(build.outcome) > -1
+        }">
+        {{build.outcome}}
+        </span>
+        <span class="label" ng-if="build.lifecycle != 'finished'" ng-class="{
+          'label-default': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf(build.lifecycle) > -1,
+          'label-primary': ['running'].indexOf(build.lifecycle) > -1
+        }">
+          {{build.lifecycle}}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

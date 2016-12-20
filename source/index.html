@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" ng-app="m3App">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CircleStatus</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cyborg/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+</head>
+<body style="padding-top: 70px;">
+
+  <noscript>
+    <p class="alert alert-danger">
+      You are seeing this message as your browser does not support javascript
+      or you have disabled it. What a shame. This web-application uses javascript
+      to function. Please enable javascript if possible.
+    </p>
+  </noscript>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <a class="pull-left navbar-brand" href="/#/">
+        CircleBoard
+      </a>
+      <div class="btn-toolbar pull-right navbar-btn">
+        <div class="btn-group navbar-btn">
+          <a class="btn btn-default " ng-click="increaseFontSize()">
+            <i class="glyphicon glyphicon-plus-sign"></i>
+          </a>
+          <a class="btn btn-default" ng-click="decreaseFontSize()">
+            <i class="glyphicon glyphicon-minus-sign"></i>
+          </a>
+        </div>
+        <a class="btn btn-default navbar-btn" href="/#/config">
+          <i class="glyphicon glyphicon-cog"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div ng-view="" id="ng-view"></div>
+  </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+
+  <script src="scripts/App.js"></script>
+  <script src="scripts/Config.js"></script>
+  <script src="scripts/AppController.js"></script>
+  <script src="scripts/ConfigController.js"></script>
+
+</body>
+</html>

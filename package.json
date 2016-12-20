@@ -1,0 +1,23 @@
+{
+  "name": "circleboard",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node_modules/bower/bin/bower install;",
+    "prestart": "npm install",
+    "start": "node_modules/http-server/bin/http-server source -p 8000 -c-1"
+  },
+  "contributors": [
+    {
+      "name": "Marcel Eichner",
+      "email": "marcel.eichner@ephigenia.de"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+  	"bower": "^1.5.3",
+  	"http-server": "^0.8.5"
+  }
+}
