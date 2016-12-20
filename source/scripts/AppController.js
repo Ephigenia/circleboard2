@@ -51,7 +51,7 @@
       // countdown
       $scope.refreshInterval = window.setInterval(function() {
         $scope.countdown--;
-        $log.info('%d seconds left till refresh', $scope.countdown);
+        // $log.info('%d seconds left till refresh', $scope.countdown);
         if ($scope.countdown < 0) {
           update();
           $scope.countdown = REFRESH_INTERVAL;

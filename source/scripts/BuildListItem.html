@@ -1,0 +1,42 @@
+<td>
+  <time ng-if="!$ctrl.build.stop_time">{{$ctrl.build.start_time | date:'MMM/dd HH:mm'}}</time>
+  <time ng-if="$ctrl.build.stop_time">{{$ctrl.build.stop_time | date:'MMM/dd HH:mm'}}</time>
+  <br>
+  <span class="text-muted" ng-if="$ctrl.build.build_time_millis">{{$ctrl.build.build_time_millis/1000}}s</span>
+</td>
+<td>
+  <a href="{{ $ctrl.build.compare }}" target="_blank" title="Open the changes on github">
+    <code>{{ $ctrl.build.vcs_revision.substr(0,7) }}</code>
+  </a>
+</td>
+<td>
+  <a href="{{ $ctrl.build.build_url}}" target="_blank" title="the build number, click to open the build on circleci">#{{ $ctrl.build.build_num}}</a>
+  <strong>
+    <a href="{{ $ctrl.build.vcs_url }}" target="_blank" title="the repository name, click to open the repository on github">{{$ctrl.build.reponame}}</a>
+    {{$ctrl.build.branch}}
+  </strong>
+  <a href="{{ $ctrl.build.build_url}}" ng-if="$ctrl.build.has_artifacts" target="_blank" title="this build has artifacts, click to open">
+    <i class="fa fa-paperclip" aria-hidden="true"></i>
+  </a>
+  <br>
+  <span class="text-muted">{{$ctrl.build.subject}}</span>
+</td>
+<td title="{{ $ctrl.committerTitle }}">
+  <i class="fa fa-user-circle-o" aria-hidden="true" ng-if="$ctrl.build.committer_name"></i>
+  {{ $ctrl.build.committer_name }}
+</td>
+<td>
+  <span class="tag" ng-if="$ctrl.build.lifecycle == 'finished'" ng-class="{
+    'tag-success': ['success'].indexOf($ctrl.build.outcome) > -1,
+    'tag-warning': ['canceled', 'no_tests'].indexOf($ctrl.build.outcome) > -1,
+    'tag-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf($ctrl.build.outcome) > -1
+  }">
+  {{$ctrl.build.outcome}}
+  </span>
+  <span class="tag" ng-if="$ctrl.build.lifecycle != 'finished'" ng-class="{
+    'tag-default': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf($ctrl.build.lifecycle) > -1,
+    'tag-primary': ['running'].indexOf($ctrl.build.lifecycle) > -1
+  }">
+    {{$ctrl.build.lifecycle}}
+  </span>
+</td>
