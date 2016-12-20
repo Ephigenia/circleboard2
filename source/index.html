@@ -6,13 +6,11 @@
   <title>CircleBoard2</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link href="favicon.ico" rel="icon" type="image/png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cyborg/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <script src="https://use.fontawesome.com/3c49f2651a.js"></script>
 </head>
-<body style="padding-top: 70px;">
+<body>
 
   <noscript>
     <p class="alert alert-danger">
@@ -22,28 +20,21 @@
     </p>
   </noscript>
 
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <a class="pull-left navbar-brand" href="/#/">
-        CircleBoard
-      </a>
-      <div class="btn-toolbar pull-right navbar-btn">
-        <div class="btn-group navbar-btn">
-          <a class="btn btn-default " ng-click="increaseFontSize()">
-            <i class="glyphicon glyphicon-plus-sign"></i>
-          </a>
-          <a class="btn btn-default" ng-click="decreaseFontSize()">
-            <i class="glyphicon glyphicon-minus-sign"></i>
-          </a>
-        </div>
-        <a class="btn btn-default navbar-btn" href="/#/config">
-          <i class="glyphicon glyphicon-cog"></i>
-        </a>
-      </div>
-    </div>
+  <nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="#">CircleBoard 2.0</a>
+
+    <button class="btn btn-outline-secondary" ng-click="increaseFontSize()" title="increase font size">
+      <i class="fa fa-search-plus" aria-hidden="true"></i>
+    </button>
+    <button class="btn btn-outline-secondary" ng-click="decreaseFontSize()" title="decrease font size">
+      <i class="fa fa-search-minus" aria-hidden="true"></i>
+    </button>
+    <button class="btn btn-outline-secondary" href="/#/config" title="adjust all settings">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+    </button>
   </nav>
 
-  <div class="container-fluid">
+  <div>
     <div ng-view="" id="ng-view"></div>
   </div>
 
