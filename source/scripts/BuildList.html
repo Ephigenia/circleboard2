@@ -29,14 +29,22 @@
         <span class="text-muted" ng-if="build.build_time_millis">{{build.build_time_millis/1000}}s</span>
       </td>
       <td>
-        {{build.vcs_revision.substr(0,7)}}
+        <a href="{{ build.compare }}" target="_blank" title="Open the changes on github">
+          {{ build.vcs_revision.substr(0,7) }}
+        </a>
       </td>
       <td>
-        <strong>{{build.reponame}} {{build.branch}}</strong><br>
+        <a href="{{ build.build_url}}" target="_blank" title="the build number, click to open the build on circleci">#{{ build.build_num}}</a>
+        <strong>
+          <a href="{{ build.vcs_url }}" target="_blank" title="the repository name, click to open the repository on github">{{build.reponame}}</a>
+          {{build.branch}}
+        </strong>
+        <br>
         <span class="text-muted">{{build.subject}}</span>
       </td>
       <td>
-        {{build.author_name}}
+        <i class="fa fa-user-circle-o" aria-hidden="true" ng-if="build.committer-name"></i>
+        {{ build.committer_name }}
       </td>
       <td>
         <span class="tag" ng-if="build.lifecycle == 'finished'" ng-class="{
