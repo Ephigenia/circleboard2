@@ -12,10 +12,18 @@
       bindToController: true,
       controllerAs: '$ctrl',
       templateUrl: 'scripts/buildListItem.html',
-      controller: function($filter) {
+      controller: function($filter, $element) {
         var ctrl = this;
 
         // @TODO when failed colorize the whole row
+
+        switch (ctrl.build.outcome) {
+          default:
+            break;
+          case 'failed':
+            $element.addClass('table-danger');
+            break;
+        }
 
         Object.defineProperties(this, {
           committerTitle: {
@@ -27,7 +35,7 @@
               }
               if (build.committer_date) {
                 title += ' ' + $filter('date')(build.committer_date, 'shortDate');
-                title += $filter('date')(build.committer_date, 'shortTime');
+                title += ' ' + $filter('date')(build.committer_date, 'shortTime');
               }
               return title;
             }
