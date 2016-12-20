@@ -2,22 +2,32 @@
   "name": "circleboard",
   "version": "2.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node_modules/bower/bin/bower install;",
-    "prestart": "npm install",
-    "start": "node_modules/http-server/bin/http-server source -p 8000 -c-1"
-  },
   "contributors": [
     {
       "name": "Marcel Eichner",
       "email": "marcel.eichner@ephigenia.de"
     }
   ],
-  "license": "ISC",
+  "license": "MIT",
+  "scripts": {
+    "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
+    "commitmsg": "conventional-changelog-lint -e",
+    "lint": "eslint source/scripts",
+    "postinstall": "node_modules/bower/bin/bower install;",
+    "postversion": "git push && git push --tags",
+    "prestart": "npm install",
+    "preversion": "npm test",
+    "start": "node_modules/http-server/bin/http-server source -p 8000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "version": "npm run changelog && git add CHANGELOG.md"
+  },
   "dependencies": {
-  	"bower": "^1.5.3",
-  	"http-server": "^0.8.5"
+    "bower": "^1.5.3",
+    "http-server": "^0.8.5"
+  },
+  "devDependencies": {
+    "conventional-changelog-cli": "^1.2.0",
+    "conventional-changelog-lint": "^1.1.0",
+    "husky": "^0.11.9"
   }
 }
