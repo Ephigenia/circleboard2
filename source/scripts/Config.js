@@ -1,16 +1,12 @@
-'use strict';
-
 (function() {
+  'use strict';
 
   angular
-    .module('m3App')
-    .factory('Config', ConfigFactory);
-
-  ConfigFactory.$inject = [
-  ];
-
-  function ConfigFactory($rootScope) {
-
+    .module('circleboard')
+    .factory('Config',
+  function(
+    $rootScope
+  ) {
     // default configuration
     var defaults = {
       apiToken: null,
@@ -40,6 +36,5 @@
     }
 
     return new Config('circleboard');
-  }
-
+  });
 })();

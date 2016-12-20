@@ -1,21 +1,10 @@
-'use strict';
-
 (function() {
+  'use strict';
 
   angular
-    .module('m3App')
-    .controller('AppController', AppController);
-
-  AppController.$inject = [
-    '$rootScope',
-    '$scope',
-    '$log',
-    '$http',
-    '$q',
-    'Config'
-  ];
-
-  function AppController(
+    .module('circleboard')
+    .controller('AppController',
+  function(
     $rootScope,
     $scope,
     $log,
@@ -23,7 +12,6 @@
     $q,
     Config
   ) {
-
     var APITOKEN = Config.apiToken;
     var REFRESH_INTERVAL = Config.refreshInterval;
 
@@ -31,7 +19,6 @@
     $scope.countdown = 1;
     $scope.config = Config;
 
-    // https://circleci.com/docs/api#recent-builds-project
     function fetchRecentBuilds() {
       var deferred = $q.defer();
       var url = 'https://circleci.com/api/v1/recent-builds';
@@ -72,18 +59,10 @@
         $scope.$apply();
       }, 1000);
     }
-    function stopPolling() {
-      $log.info('polling stopped');
-      if ($scope.refreshInterval) {
-        window.clearInterval($scope.refreshInterval);
-      }
-    }
 
     if (Config.apiToken) {
       $log.info('apiToken found, start polling');
       startPolling();
     }
-
-  }
-
+  });
 })();
