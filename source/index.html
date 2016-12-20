@@ -20,18 +20,21 @@
     </p>
   </noscript>
 
-  <nav class="navbar navbar-light bg-faded">
+  <nav class="navbar">
     <a class="navbar-brand" href="#">CircleBoard 2.0</a>
-
-    <button class="btn btn-outline-secondary" ng-click="increaseFontSize()" title="increase font size">
-      <i class="fa fa-search-plus" aria-hidden="true"></i>
-    </button>
-    <button class="btn btn-outline-secondary" ng-click="decreaseFontSize()" title="decrease font size">
-      <i class="fa fa-search-minus" aria-hidden="true"></i>
-    </button>
-    <button class="btn btn-outline-secondary" href="/#/config" title="adjust all settings">
-      <i class="fa fa-cog" aria-hidden="true"></i>
-    </button>
+    <div class="float-lg-right">
+      <div class="btn-group" role="group" aria-label="set font size">
+        <button class="btn btn-outline-secondary" ng-click="increaseFontSize()" title="increase font size">
+          <i class="fa fa-search-plus" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-outline-secondary" ng-click="decreaseFontSize()" title="decrease font size">
+          <i class="fa fa-search-minus" aria-hidden="true"></i>
+        </button>
+      </div>
+      <button class="btn btn-outline-secondary" href="/#/config" title="adjust all settings">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+      </button>
+    </div>
   </nav>
 
   <ui-view></ui-view>
