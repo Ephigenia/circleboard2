@@ -1,17 +1,21 @@
 (function(angular) {
   angular
     .module('circleboard', [
-      'ngRoute'
+      'ui.router',
+      'ct.ui.router.extras',
+      'ngSanitize'
     ])
     .config(function(
-      $routeProvider
+      $stateProvider
     ) {
-      $routeProvider
-        .when('/', {
+      $stateProvider
+        .state('app', {
+          url: '/',
           controller: 'AppController',
           templateUrl: '/views/main.html'
         })
-        .when('/config', {
+        .state('app.config', {
+          url: '/',
           controller: 'ConfigController',
           templateUrl: '/views/config.html'
         })
@@ -24,6 +28,7 @@
       $log,
       Config
     ) {
+      // @TODO move those actions to the buttons
       $rootScope.setFontSize = function(sizePixel) {
         $log.info('Setting font size to %dpx', sizePixel);
         var bodyElm = document.querySelector('body');

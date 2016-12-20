@@ -1,0 +1,58 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        Time
+      </th>
+      <th>
+        Revision
+      </th>
+      <th>
+        Project &amp; Branch
+      </th>
+      <th>
+        Author
+      </th>
+      <th>
+        Result
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="build in $ctrl.builds" ng-class="{
+        'danger': build.outcome == 'failed'
+      }">
+      <td>
+        <time ng-if="!build.stop_time">{{build.start_time | date:'MMM/dd HH:mm'}}</time>
+        <time ng-if="build.stop_time">{{build.stop_time | date:'MMM/dd HH:mm'}}</time>
+        <br>
+        <span class="text-muted" ng-if="build.build_time_millis">{{build.build_time_millis/1000}}s</span>
+      </td>
+      <td>
+        {{build.vcs_revision.substr(0,7)}}
+      </td>
+      <td>
+        <strong>{{build.reponame}} {{build.branch}}</strong><br>
+        <span class="text-muted">{{build.subject}}</span>
+      </td>
+      <td>
+        {{build.author_name}}
+      </td>
+      <td>
+        <span class="tag" ng-if="build.lifecycle == 'finished'" ng-class="{
+          'tag-success': ['success'].indexOf(build.outcome) > -1,
+          'tag-warning': ['canceled', 'no_tests'].indexOf(build.outcome) > -1,
+          'tag-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf(build.outcome) > -1
+        }">
+        {{build.outcome}}
+        </span>
+        <span class="tag" ng-if="build.lifecycle != 'finished'" ng-class="{
+          'tag-default': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf(build.lifecycle) > -1,
+          'tag-primary': ['running'].indexOf(build.lifecycle) > -1
+        }">
+          {{build.lifecycle}}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
