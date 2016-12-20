@@ -1,7 +1,15 @@
 {
   "name": "circleboard",
   "version": "2.0.0",
-  "description": "",
+  "description": "tabular display of the latest builds on CircleCi",
+  "keywords": [
+    "circleci",
+    "dashboard",
+    "status-monitor",
+    "status",
+    "monitor",
+    "board"
+  ],
   "contributors": [
     {
       "name": "Marcel Eichner",
