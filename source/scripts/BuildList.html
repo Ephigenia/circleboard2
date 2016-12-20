@@ -27,6 +27,9 @@
         <time ng-if="build.stop_time">{{build.stop_time | date:'MMM/dd HH:mm'}}</time>
         <br>
         <span class="text-muted" ng-if="build.build_time_millis">{{build.build_time_millis/1000}}s</span>
+        <a href="{{ build.build_url}}" ng-if="build.has_artifacts" target="_blank" title="this build has artifacts, click to open">
+          <i class="fa fa-paperclip" aria-hidden="true"></i>
+        </a>
       </td>
       <td>
         <a href="{{ build.compare }}" target="_blank" title="Open the changes on github">
