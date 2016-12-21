@@ -2,6 +2,11 @@
 # [2.1.0](https://github.com/ephigenia/circleboard2/compare/v2.0.0...v2.1.0) (2016-12-21)
 
 
+### Bug Fixes
+
+* empty white page when no uri set ([964f559](https://github.com/ephigenia/circleboard2/commit/964f559))
+
+
 ### Features
 
 * add convetional changelog generator, linter and commit hook ([36d07f2](https://github.com/ephigenia/circleboard2/commit/36d07f2))
