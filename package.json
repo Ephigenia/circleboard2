@@ -38,7 +38,7 @@
     "prestart": "npm install",
     "preversion": "npm test",
     "start": "node_modules/http-server/bin/http-server source -p 8000 -c-1",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "version": "npm run changelog && git add CHANGELOG.md"
   },
   "dependencies": {
