@@ -1,4 +1,4 @@
-A tabular display of the most recent builds on circleci for use in a dashboard display.
+A tabular display of the most recent builds on circleci for use in a dashboard display. Checkout the Demo on https://circleboard2.herokuapp.com/
 
 ![Screenshot of Circleboard in Action from 2016-12-21](https://raw.githubusercontent.com/Ephigenia/circleboard2/master/screenshot.jpg)
 
@@ -9,10 +9,20 @@ A tabular display of the most recent builds on circleci for use in a dashboard d
 
 ## Setup
 
+There’s a alway up to date version running at https://circleboard2.herokuapp.com/ where you can set you own [CircleCi API Token](https://circleci.com/account/api) and use it as your dashboard.
+
+If you’re planning to run you own instance i would recommend to fork this project and connect it to a [heroku](https://www.heroku.com/) project.
+
+## Develop
+
 Before you can start testing or developing you’ll have to install all dependencies with:
 
     npm install
     npm start
+
+## Tests
+
+There are not tests so far. Will be added in later version.
 
 ## Releasing
 
