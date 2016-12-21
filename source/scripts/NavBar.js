@@ -39,7 +39,7 @@
 
       // set default font size
       if (!Config.fontSize) {
-        Config.fontSize = 12;
+        Config.fontSize = 16;
       }
       this.setFontSize(Config.fontSize);
     }

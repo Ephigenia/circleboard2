@@ -11,6 +11,7 @@
   ) {
     // default configuration
     var defaults = {
+      fontSize: 16,
       apiToken: null,
       refreshInterval: 30
     };
