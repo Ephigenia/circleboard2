@@ -1,0 +1,12 @@
+<div class="navbar-fixed-top" ng-show="$ctrl.countdown <= 5">
+  <div class="list-group">
+    <div class="list-group-item list-group-item-info">
+      Refresh in <span class="countdown">{{ $ctrl.countdown }}</span>s
+    </div>
+  </div>
+</div>
+<div class="alert alert-warning" ng-if="!$ctrl.config.apiToken">
+  This is probably the first time you’ve started CircleBoard. To make it work
+  you’ll need to <a ui-sref="app.config">set a API Token in the Configuration first</a>.
+</div>
+<build-list ng-if="$ctrl.config.apiToken" builds="$ctrl.builds"></build-list>

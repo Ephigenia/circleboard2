@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" ng-app="circleboard">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <script src="https://use.fontawesome.com/3c49f2651a.js"></script>
 </head>
-<body>
+<body ng-app="circleboard">
+  <ui-view></ui-view>
 
   <noscript>
     <p class="alert alert-danger">
@@ -20,36 +21,17 @@
     </p>
   </noscript>
 
-  <nav class="navbar">
-    <a class="navbar-brand" href="#">CircleBoard 2.0</a>
-    <div class="float-lg-right">
-      <div class="btn-group" role="group" aria-label="set font size">
-        <button class="btn btn-outline-secondary" ng-click="increaseFontSize()" title="increase font size">
-          <i class="fa fa-search-plus" aria-hidden="true"></i>
-        </button>
-        <button class="btn btn-outline-secondary" ng-click="decreaseFontSize()" title="decrease font size">
-          <i class="fa fa-search-minus" aria-hidden="true"></i>
-        </button>
-      </div>
-      <button class="btn btn-outline-secondary" href="/#/config" title="adjust all settings">
-        <i class="fa fa-cog" aria-hidden="true"></i>
-      </button>
-    </div>
-  </nav>
-
-  <ui-view></ui-view>
-
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/ui-router-extras/release/ct-ui-router-extras.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 
   <script src="scripts/App.js"></script>
-  <script src="scripts/Config.js"></script>
-  <script src="scripts/AppController.js"></script>
-  <script src="scripts/ConfigController.js"></script>
   <script src="scripts/BuildList.js"></script>
   <script src="scripts/BuildListItem.js"></script>
+  <script src="scripts/Config.js"></script>
+  <script src="scripts/ConfigComponent.js"></script>
+  <script src="scripts/MainComponent.js"></script>
+  <script src="scripts/NavBar.js"></script>
 
 </body>
 </html>

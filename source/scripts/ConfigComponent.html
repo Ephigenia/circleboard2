@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>
+    Configuration
+  </h1>
+  <form name="form" novalidate ng-submit="$ctrl.config.save()">
+    <fieldset>
+      <div class="form-group">
+        <label for="apiToken">API Token</label>
+        <input
+          class="form-control"
+          id="apiToken"
+          type="text"
+          name="apiToken"
+          ng-model="$ctrl.config.apiToken"
+        />
+        <small class="form-text text-muted">
+          It’s recommended to create an extra API Token which is exclusively
+          used for this dashboard:
+          <a href="https://circleci.com/account/api" target="_blank">https://circleci.com/account/api</a>
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="refreshInterval">Refresh Interval</label>
+        <input
+          class="form-control"
+          id="refreshInterval"
+          type="number"
+          min="20"
+          max="1000"
+          name="refreshInterval"
+          ng-model="$ctrl.config.refreshInterval"
+        />
+        <small class="form-text text-muted">
+          Defines the interval between polling the builds from CircleCi in seconds.
+        </small>
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">SAVE</button>
+  </form>
+</div>

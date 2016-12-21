@@ -5,7 +5,9 @@
     .module('circleboard')
     .factory('Config',
   function(
-    $rootScope
+    $rootScope,
+    $window,
+    $log
   ) {
     // default configuration
     var defaults = {
@@ -14,12 +16,11 @@
     };
 
     function Config(prefix) {
-
       prefix = prefix || 'config';
 
-      var storage = window.localStorage;
+      var storage = $window.localStorage;
 
-      var storageContents = JSON.parse(storage.getItem(prefix));
+      var storageContents = angular.fromJson(storage.getItem(prefix));
       angular.extend(this, angular.extend(defaults, storageContents));
 
       // make sure the interval isn’t to low
@@ -28,10 +29,12 @@
       }
 
       this.save = function() {
-        storage.setItem(prefix, JSON.stringify(this));
+        $log.debug('Config.save', this);
+        storage.setItem(prefix, angular.toJson(this));
       };
       this.reset = function() {
-        storage.setItem(prefix, JSON.stringify(defaults));
+        $log.debug('Config.reset');
+        storage.setItem(prefix, angular.toJson(defaults));
       };
     }
 

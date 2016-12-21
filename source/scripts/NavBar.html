@@ -1,0 +1,29 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" ui-sref="app.list">
+    CircleBoard 2.0
+  </a>
+  <div class="float-lg-right">
+    <div class="btn-group" role="group" aria-label="set font size">
+      <button
+        class="btn btn-outline-secondary"
+        title="increase font size"
+        ng-click="$ctrl.increaseFontSize()"
+      >
+        <i class="fa fa-search-plus" aria-hidden="true"></i>
+      </button>
+      <button
+        class="btn btn-outline-secondary"
+        title="decrease font size"
+        ng-click="$ctrl.decreaseFontSize()"
+      >
+        <i class="fa fa-search-minus" aria-hidden="true"></i>
+      </button>
+    </div>
+    <button class="btn btn-outline-secondary"
+      title="adjust all settings"
+      ui-sref="app.config"
+    >
+      <i class="fa fa-cog" aria-hidden="true"></i>
+    </button>
+  </div>
+</nav>
