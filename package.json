@@ -3,12 +3,17 @@
   "version": "2.0.0",
   "description": "tabular display of the latest builds on CircleCi",
   "keywords": [
+    "board",
+    "ci",
     "circleci",
+    "continuous",
     "dashboard",
+    "display",
+    "integration",
+    "monitor",
     "status-monitor",
     "status",
-    "monitor",
-    "board"
+    "unit-test"
   ],
   "contributors": [
     {
