@@ -2,7 +2,9 @@
   <time ng-if="!$ctrl.build.stop_time">{{$ctrl.build.start_time | date:'MMM/dd HH:mm'}}</time>
   <time ng-if="$ctrl.build.stop_time">{{$ctrl.build.stop_time | date:'MMM/dd HH:mm'}}</time>
   <br>
-  <span class="text-muted" ng-if="$ctrl.build.build_time_millis">{{$ctrl.build.build_time_millis/1000}}s</span>
+  <span class="text-muted" ng-if="$ctrl.build.build_time_millis" title="build took {{$ctrl.build.build_time_millis / 1000}}s">
+    {{$ctrl.build.build_time_millis | duration}}
+  </span>
 </td>
 <td>
   <a href="{{ $ctrl.build.compare }}" target="_blank" title="Open the changes on github">

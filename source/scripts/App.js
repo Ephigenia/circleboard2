@@ -9,7 +9,7 @@
     ) {
       $stateProvider
         .state('app', {
-          url: '',
+          url: '/',
           abstract: true,
           template: '<navbar-component></navbar-component><div ui-view style="margin-top: 54px;"></div>'
         })
@@ -40,6 +40,11 @@
             }
           },
           component: 'configComponent'
+        })
+        // catchall route which redirects back to the list of builds
+        .state('default', {
+          url: '',
+          redirectTo: 'app.list'
         })
       ;
     })
