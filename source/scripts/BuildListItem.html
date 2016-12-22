@@ -1,8 +1,12 @@
 <td>
+  <i class="fa fa-calendar-check-o" aria-hidden="true" ng-if="$ctrl.build.outcome === 'success'"></i>
+  <i class="fa fa-calendar-o" aria-hidden="true" ng-if="!$ctrl.build.outcome"></i>
+  <i class="fa fa-calendar-times-o" aria-hidden="true" ng-if="$ctrl.build.outcome !== 'success'"></i>
   <time ng-if="!$ctrl.build.stop_time">{{$ctrl.build.start_time | date:'MMM/dd HH:mm'}}</time>
   <time ng-if="$ctrl.build.stop_time">{{$ctrl.build.stop_time | date:'MMM/dd HH:mm'}}</time>
   <br>
   <span class="text-muted" ng-if="$ctrl.build.build_time_millis" title="build took {{$ctrl.build.build_time_millis / 1000}}s">
+    <i class="fa fa-clock-o" aria-hidden="true"></i>
     {{$ctrl.build.build_time_millis | duration}}
   </span>
 </td>
