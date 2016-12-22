@@ -5,6 +5,10 @@
   .module('circleboard')
   .component('mainComponent', {
     templateUrl: 'scripts/MainComponent.html',
+    bindings: {
+      apiToken: '<',
+      refreshInterval: '<'
+    },
     controller: function(
       $log,
       Config,
@@ -31,16 +35,12 @@
           enumerable: true
         }
       });
-
-      var APITOKEN = Config.apiToken;
-      var REFRESH_INTERVAL = Config.refreshInterval;
-
       function fetchRecentBuilds() {
         var deferred = $q.defer();
         var url = 'https://circleci.com/api/v1/recent-builds';
         var options = {
           params: {
-            'circle-token': APITOKEN
+            'circle-token': ctrl.apiToken
           }
         };
         $http.get(url, options)
@@ -69,7 +69,7 @@
           // $log.info('%d seconds left till refresh', $scope.countdown);
           if (ctrl.countdown < 0) {
             update();
-            ctrl.countdown = REFRESH_INTERVAL;
+            ctrl.countdown = ctrl.refreshInterval;
           }
         }, 1000);
       }
