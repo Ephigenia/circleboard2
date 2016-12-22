@@ -1,3 +1,21 @@
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/ephigenia/circleboard2/compare/v2.1.0...v2.2.0) (2016-12-22)
+
+
+### Bug Fixes
+
+* **nav:** btn float right on small screens ([c6c43a4](https://github.com/ephigenia/circleboard2/commit/c6c43a4))
+
+
+### Features
+
+* add calendar-ok and calender-not-ok icons to build item ([a8cbe8c](https://github.com/ephigenia/circleboard2/commit/a8cbe8c))
+* apiToken can be set with /#?apiToken=<value> ([6f917ee](https://github.com/ephigenia/circleboard2/commit/6f917ee))
+* circleci api errors shown ([7a89e32](https://github.com/ephigenia/circleboard2/commit/7a89e32))
+* human readable build duration display ([e78c530](https://github.com/ephigenia/circleboard2/commit/e78c530))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/ephigenia/circleboard2/compare/v2.0.0...v2.1.0) (2016-12-21)
 
