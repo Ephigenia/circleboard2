@@ -11,7 +11,7 @@
       },
       bindToController: true,
       controllerAs: '$ctrl',
-      templateUrl: 'scripts/buildListItem.html',
+      templateUrl: 'scripts/BuildListItem.html',
       controller: function($filter, $element) {
         var ctrl = this;
 
