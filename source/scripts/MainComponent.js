@@ -36,28 +36,22 @@
         }
       });
       function fetchRecentBuilds() {
-        var deferred = $q.defer();
         var url = 'https://circleci.com/api/v1/recent-builds';
         var options = {
           params: {
             'circle-token': ctrl.apiToken
           }
         };
-        $http.get(url, options)
-          .success(function(response) {
-            deferred.resolve(response);
-          })
-          .error(function(err) {
-            $log.error(err);
-            deferred.reject(err);
-          });
-        return deferred.promise;
+        return $http.get(url, options);
       }
 
       function update() {
         $log.info('starting an update');
-        fetchRecentBuilds().then(function(builds) {
-          ctrl.builds = builds;
+        fetchRecentBuilds().then(function(response) {
+          ctrl.error = null;
+          ctrl.builds = response.data;
+        }, function(rejection) {
+          ctrl.error = rejection;
         });
       }
 
