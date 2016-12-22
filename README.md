@@ -1,4 +1,4 @@
-A tabular display of the most recent builds on circleci for use in a dashboard display. Checkout the Demo on https://circleboard2.herokuapp.com/
+A tabular display of the most recent builds on circleci for use as a build monitor dashboard display. Checkout the Demo on https://circleboard2.herokuapp.com/
 
 ![Screenshot of Circleboard in Action from 2016-12-21](https://raw.githubusercontent.com/Ephigenia/circleboard2/master/screenshot.jpg)
 

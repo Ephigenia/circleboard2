@@ -4,6 +4,8 @@
   "description": "tabular display of the latest builds on CircleCi",
   "keywords": [
     "board",
+    "build",
+    "buildmonitor",
     "ci",
     "circleci",
     "continuous",
