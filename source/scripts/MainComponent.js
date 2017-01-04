@@ -71,6 +71,7 @@
 
       function stopPolling() {
         if (ctrl.updateTimeout) {
+          $log.info('polling stopped');
           $interval.cancel(ctrl.updateTimeout);
         }
       }

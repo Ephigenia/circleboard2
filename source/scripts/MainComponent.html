@@ -13,11 +13,4 @@
 </div>
 <div ng-if="$ctrl.config.apiToken && !$ctrl.error">
   <build-list builds="$ctrl.builds"></build-list>
-  <div class="navbar-fixed-top" ng-show="$ctrl.countdown <= 5">
-    <div class="list-group">
-      <div class="list-group-item list-group-item-info">
-        Refresh in <span class="countdown">{{ $ctrl.countdown }}</span>s
-      </div>
-    </div>
-  </div>
 </div>

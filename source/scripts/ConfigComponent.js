@@ -9,6 +9,9 @@
       config: '<'
     },
     controller: function() {
+      this.save = function() {
+        this.config.save();
+      };
     }
   });
 })();
