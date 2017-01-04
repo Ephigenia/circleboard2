@@ -1,7 +1,11 @@
-<nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
   <a class="navbar-brand" ui-sref="app.list">
     CircleBoard 2.0
   </a>
+  <span class="navbar-text float-xs-left" ng-if="$ctrl.buildService.polling">
+    <i class="fa fa-spinner fa-pulse fa-fw" ng-show="$ctrl.buildService.loading"></i>
+    <span ng-hide="$ctrl.buildService.loading">update in {{$ctrl.buildService.countdown}}s</span>
+  </span>
   <div class="float-xs-right">
     <div class="btn-group" role="group" aria-label="set font size">
       <button

@@ -8,10 +8,13 @@
     controller: function(
       $log,
       $document,
-      Config
+      Config,
+      BuildService
     ) {
       var FONT_SIZE_MAX = 32;
       var FONT_SIZE_MIN = 8;
+
+      this.buildService = BuildService;
 
       this.setFontSize = function(sizePixel) {
         // cap the font size between min and max
