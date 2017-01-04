@@ -21,9 +21,7 @@
     <a href="{{ $ctrl.build.vcs_url }}" target="_blank" title="the repository name, click to open the repository on github">{{$ctrl.build.reponame}}</a>
     {{$ctrl.build.branch}}
   </strong>
-  <a href="{{ $ctrl.build.build_url}}" ng-if="$ctrl.build.has_artifacts" target="_blank" title="this build has artifacts, click to open">
-    <i class="fa fa-paperclip" aria-hidden="true"></i>
-  </a>
+  <a href="{{ $ctrl.build.build_url}}" ng-if="$ctrl.build.has_artifacts" target="_blank" title="this build has artifacts, click to open"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
   <br>
   <span class="text-muted">{{$ctrl.build.subject}}</span>
 </td>
