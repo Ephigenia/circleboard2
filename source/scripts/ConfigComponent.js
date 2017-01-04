@@ -11,6 +11,7 @@
     controller: function() {
       this.save = function() {
         this.config.save();
+        this.form.$setPristine();
       };
     }
   });
