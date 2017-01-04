@@ -13,4 +13,7 @@
 </div>
 <div ng-if="$ctrl.apiToken && !$ctrl.buildService.error">
   <build-list builds="$ctrl.buildService.builds"></build-list>
+  <div ng-hide="$ctrl.buildService.builds.length" class="alert alert-info">
+    There are no builds that can be displayed.
+  </div>
 </div>
