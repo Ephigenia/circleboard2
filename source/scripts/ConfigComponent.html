@@ -44,6 +44,11 @@
         </small>
       </div>
     </fieldset>
-    <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.form.$pristine">SAVE</button>
+    <button type="submit" class="btn btn-primary"
+      ng-disabled="$ctrl.form.$pristine || $ctrl.form.$invalid"
+      ng-class="{
+        'btn-warning': $ctrl.form.$invalid
+      }"
+      >SAVE</button>
   </form>
 </div>
