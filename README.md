@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/Ephigenia/circleboard2.svg?style=svg)](https://circleci.com/gh/Ephigenia/circleboard2)
+[![Code Climate](https://codeclimate.com/repos/586cd56729b35a26b6002382/badges/994061a9c966d2e9b3fe/gpa.svg)](https://codeclimate.com/repos/586cd56729b35a26b6002382/feed)
+
 A tabular display of the most recent builds on circleci for use as a build monitor dashboard display. Checkout the Demo on https://circleboard2.herokuapp.com/
 
 ![Screenshot of Circleboard in Action from 2016-12-21](https://raw.githubusercontent.com/Ephigenia/circleboard2/master/screenshot.jpg)
