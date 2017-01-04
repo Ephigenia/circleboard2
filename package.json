@@ -1,6 +1,6 @@
 {
   "name": "circleboard",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "tabular display of the latest builds on CircleCi",
   "keywords": [
     "board",

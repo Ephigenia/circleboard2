@@ -1,3 +1,23 @@
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/ephigenia/circleboard2/compare/v2.2.0...v2.3.0) (2017-01-04)
+
+
+### Bug Fixes
+
+* **build-list:** hover space underline in paperclip icon ([0f60877](https://github.com/ephigenia/circleboard2/commit/0f60877))
+* **build-list:** refresh interval does work as expected now ([07a0e1e](https://github.com/ephigenia/circleboard2/commit/07a0e1e))
+
+
+### Features
+
+* **build-list:** show list is empty message when no builds there ([b0f417e](https://github.com/ephigenia/circleboard2/commit/b0f417e))
+* **config:** disable save btn when invalid values ([be223f1](https://github.com/ephigenia/circleboard2/commit/be223f1))
+* **config:** pristine state and save btn disabled when pristine ([b1ef3b0](https://github.com/ephigenia/circleboard2/commit/b1ef3b0))
+* **config:** validation state for api token and refresh interval ([1762440](https://github.com/ephigenia/circleboard2/commit/1762440))
+* **nav-bar:** show countdown & loading indicator ([e79a565](https://github.com/ephigenia/circleboard2/commit/e79a565))
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/ephigenia/circleboard2/compare/v2.1.0...v2.2.0) (2016-12-22)
 
