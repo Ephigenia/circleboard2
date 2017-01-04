@@ -43,7 +43,7 @@
         function(rejection) {
           $log.error('error happened', rejection);
           this.error = rejection;
-        });
+        }.bind(this));
     };
 
     BuildService.prototype.startPolling = function(delay) {
