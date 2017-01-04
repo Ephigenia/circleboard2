@@ -1,3 +1,14 @@
+<a name="2.3.1"></a>
+## [2.3.1](https://github.com/ephigenia/circleboard2/compare/v2.3.0...v2.3.1) (2017-01-04)
+
+
+### Bug Fixes
+
+* **build-list:** error display ([1da135c](https://github.com/ephigenia/circleboard2/commit/1da135c))
+* lowercase filename for BuildService ([60c3c96](https://github.com/ephigenia/circleboard2/commit/60c3c96))
+
+
+
 <a name="2.3.0"></a>
 # [2.3.0](https://github.com/ephigenia/circleboard2/compare/v2.2.0...v2.3.0) (2017-01-04)
 
