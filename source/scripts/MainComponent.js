@@ -58,20 +58,25 @@
       function startPolling() {
         $log.info('polling started');
         // countdown
-        ctrl.refreshInterval = $interval(function() {
+        ctrl.updateTimeout = $interval(function() {
           ctrl.countdown--;
-          // $log.info('%d seconds left till refresh', $scope.countdown);
-          if (ctrl.countdown < 0) {
+          // when countdown is counted to update
+          if (ctrl.countdown <= 0) {
             update();
+            // reset countdown to the interval default
             ctrl.countdown = ctrl.refreshInterval;
           }
         }, 1000);
       }
 
-      this.$onDestroy = function() {
-        if (ctrl.refreshInterval) {
-          $interval.cancel(ctrl.refreshInterval);
+      function stopPolling() {
+        if (ctrl.updateTimeout) {
+          $interval.cancel(ctrl.updateTimeout);
         }
+      }
+
+      this.$onDestroy = function() {
+        stopPolling();
       };
 
       if (ctrl.config.apiToken) {
