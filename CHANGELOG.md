@@ -1,3 +1,8 @@
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/ephigenia/circleboard2/compare/v2.3.1...v2.4.0) (2017-01-05)
+
+
+
 <a name="2.3.1"></a>
 ## [2.3.1](https://github.com/ephigenia/circleboard2/compare/v2.3.0...v2.3.1) (2017-01-04)
 
