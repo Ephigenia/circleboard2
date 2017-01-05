@@ -19,11 +19,13 @@
         BuildService.stopPolling();
       };
 
-      if (this.apiToken) {
-        $log.info('apiToken found, start polling');
-        BuildService.apiToken = this.apiToken;
-        BuildService.startPolling(this.refreshInterval);
-      }
+      this.$onInit = function() {
+        if (this.apiToken) {
+          $log.info('apiToken found, start polling');
+          BuildService.apiToken = this.apiToken;
+          BuildService.startPolling(this.refreshInterval);
+        }
+      };
     }
   });
 })();

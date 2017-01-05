@@ -9,7 +9,6 @@
     },
     templateUrl: 'scripts/BuildList.html',
     controller: function() {
-
     }
   });
 })();

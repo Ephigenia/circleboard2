@@ -15,15 +15,15 @@
       controller: function($filter, $element) {
         var ctrl = this;
 
-        // @TODO when failed colorize the whole row
-
-        switch (ctrl.build.outcome) {
-          default:
-            break;
-          case 'failed':
-            $element.addClass('table-danger');
-            break;
-        }
+        this.$onInit = function() {
+          switch (this.build.outcome) {
+            default:
+              break;
+            case 'failed':
+              $element.addClass('table-danger');
+              break;
+          }
+        };
 
         Object.defineProperties(this, {
           committerTitle: {
