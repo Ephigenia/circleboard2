@@ -4,10 +4,10 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "angular": "1.5.9",
-    "angular-loader": "1.5.9",
-    "angular-mocks": "1.5.9",
-    "angular-sanitize": "1.5.9",
+    "angular": "1.6.1",
+    "angular-loader": "1.6.1",
+    "angular-mocks": "1.6.1",
+    "angular-sanitize": "1.6.1",
     "angular-ui-router": "1.0.0-beta.3",
     "bootstrap": "v4.0.0-alpha.5"
   },
