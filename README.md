@@ -1,6 +1,8 @@
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![CircleCI](https://circleci.com/gh/Ephigenia/circleboard2.svg?style=svg)](https://circleci.com/gh/Ephigenia/circleboard2)
 [![Code Climate](https://codeclimate.com/repos/586cd56729b35a26b6002382/badges/994061a9c966d2e9b3fe/gpa.svg)](https://codeclimate.com/repos/586cd56729b35a26b6002382/feed)
+[![package.json dependencies](https://www.versioneye.com/user/projects/586e22033ab148003228acf4/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/586e22033ab148003228acf4)
+[![bower.json dependencies](https://www.versioneye.com/user/projects/586e22052f149b00509e7278/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/586e22052f149b00509e7278)
 
 A tabular display of the most recent builds on circleci for use as a build monitor dashboard display. Checkout the Demo on https://circleboard2.herokuapp.com/
 
