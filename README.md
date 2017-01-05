@@ -1,3 +1,4 @@
+[![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![CircleCI](https://circleci.com/gh/Ephigenia/circleboard2.svg?style=svg)](https://circleci.com/gh/Ephigenia/circleboard2)
 [![Code Climate](https://codeclimate.com/repos/586cd56729b35a26b6002382/badges/994061a9c966d2e9b3fe/gpa.svg)](https://codeclimate.com/repos/586cd56729b35a26b6002382/feed)
 
