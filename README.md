@@ -19,6 +19,10 @@ There’s a alway up to date version running at https://circleboard2.herokuapp.c
 
 If you’re planning to run you own instance i would recommend to fork this project and connect it to a [heroku](https://www.heroku.com/) project.
 
+You can run your own instance
+
+    npm start
+
 ## Develop
 
 Before you can start testing or developing you’ll have to install all dependencies with:

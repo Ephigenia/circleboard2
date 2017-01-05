@@ -18,6 +18,8 @@
     "valid-jsdoc": 0,
     "no-else-return": 0,
     "max-len": 0,
+    "no-var": 0,
+    "comma-dangle": 0,
     "require-jsdoc": 0,
     "no-inline-comments": 0
   }
