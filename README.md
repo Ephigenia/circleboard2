@@ -13,13 +13,18 @@ A tabular display of the most recent builds on circleci for use as a build monit
 - [nodejs](https://nodejs.org/en/) version is documented in [.nvmrc](.nvmrc)
  If you don’t have that version installed, use [nvm](https://github.com/creationix/nvm)
 
-## Setup
+## Demo/Your Board
 
 There’s a alway up to date version running at https://circleboard2.herokuapp.com/ where you can set you own [CircleCi API Token](https://circleci.com/account/api) and use it as your dashboard.
 
-If you’re planning to run you own instance i would recommend to fork this project and connect it to a [heroku](https://www.heroku.com/) project.
+## Deployment
 
-You can run your own instance
+If you’re planning to run you own instance on heroku:
+[![Deploy CircleBoard on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+## Running
+
+You can run your own instance after `npm install` with:
 
     npm start
 
