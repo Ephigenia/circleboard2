@@ -30,16 +30,16 @@
   {{ $ctrl.build.committer_name }}
 </td>
 <td>
-  <span class="tag" ng-if="$ctrl.build.lifecycle == 'finished'" ng-class="{
-    'tag-success': ['success'].indexOf($ctrl.build.outcome) > -1,
-    'tag-warning': ['canceled', 'no_tests'].indexOf($ctrl.build.outcome) > -1,
-    'tag-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf($ctrl.build.outcome) > -1
+  <span class="badge" ng-if="$ctrl.build.lifecycle == 'finished'" ng-class="{
+    'badge-success': ['success'].indexOf($ctrl.build.outcome) > -1,
+    'badge-warning': ['canceled', 'no_tests'].indexOf($ctrl.build.outcome) > -1,
+    'badge-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf($ctrl.build.outcome) > -1
   }">
   {{$ctrl.build.outcome | uppercase}}
   </span>
-  <span class="tag" ng-if="$ctrl.build.lifecycle != 'finished'" ng-class="{
-    'tag-default': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf($ctrl.build.lifecycle) > -1,
-    'tag-primary': ['running'].indexOf($ctrl.build.lifecycle) > -1
+  <span class="badge" ng-if="$ctrl.build.lifecycle != 'finished'" ng-class="{
+    'badge-default': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf($ctrl.build.lifecycle) > -1,
+    'badge-primary': ['running'].indexOf($ctrl.build.lifecycle) > -1
   }">
     {{$ctrl.build.lifecycle | uppercase}}
   </span>
