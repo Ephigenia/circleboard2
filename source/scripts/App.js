@@ -11,7 +11,7 @@
         .state('app', {
           url: '/',
           abstract: true,
-          template: '<navbar-component></navbar-component><div ui-view style="margin-top: 54px;"></div>'
+          template: '<navbar-component></navbar-component><div ui-view></div>'
         })
         .state('app.list', {
           url: '?apiToken',

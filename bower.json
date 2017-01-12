@@ -8,7 +8,7 @@
     "angular-loader": "1.6.1",
     "angular-mocks": "1.6.1",
     "angular-sanitize": "1.6.1",
-    "angular-ui-router": "1.0.0-beta.3",
+    "angular-ui-router": "1.0.0-rc.1",
     "bootstrap": "v4.0.0-alpha.6"
   },
   "devDependencies": {}
