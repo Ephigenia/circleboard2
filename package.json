@@ -40,7 +40,7 @@
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
     "commitmsg": "conventional-changelog-lint -e",
     "lint": "eslint source/scripts",
-    "postinstall": "node_modules/bower/bin/bower install;",
+    "postinstall": "bower install --force",
     "postversion": "git push && git push --tags",
     "prestart": "npm install",
     "preversion": "npm test",
