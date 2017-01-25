@@ -1,3 +1,21 @@
+<a name="2.5.0"></a>
+# [2.5.0](https://github.com/ephigenia/circleboard2/compare/v2.4.0...v2.5.0) (2017-01-25)
+
+
+### Bug Fixes
+
+* **build-list:** labels are badges as of bootstrap alpha-6 ([0295095](https://github.com/ephigenia/circleboard2/commit/0295095))
+* **navbar:** bootstrap 4 alpha 6 adjustments ([8ecb7f9](https://github.com/ephigenia/circleboard2/commit/8ecb7f9))
+
+
+### Features
+
+* not started build show their author date ([8115146](https://github.com/ephigenia/circleboard2/commit/8115146))
+* **build-list:** title tooltips for the build start/end, author dates ([b12091c](https://github.com/ephigenia/circleboard2/commit/b12091c))
+* **build-list:** uppercase outcome & lifecycle labels ([51c51b5](https://github.com/ephigenia/circleboard2/commit/51c51b5))
+
+
+
 <a name="2.4.0"></a>
 # [2.4.0](https://github.com/ephigenia/circleboard2/compare/v2.3.1...v2.4.0) (2017-01-05)
 
