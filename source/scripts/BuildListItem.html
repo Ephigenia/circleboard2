@@ -2,13 +2,13 @@
   <i class="fa fa-calendar-check-o" aria-hidden="true" ng-if="$ctrl.build.outcome === 'success'"></i>
   <i class="fa fa-calendar-o" aria-hidden="true" ng-if="!$ctrl.build.outcome"></i>
   <i class="fa fa-calendar-times-o" aria-hidden="true" ng-if="$ctrl.build.outcome && $ctrl.build.outcome !== 'success'"></i>
-  <time ng-if="!$ctrl.build.stop_time && !$ctrl.build.start_time" title="Build has not been started.">
+  <time ng-if="!$ctrl.build.stop_time && !$ctrl.build.start_time" title="Build has been triggered, but not yet started.">
     {{ $ctrl.build.author_date | date: 'MMM/dd HH:mm' }}
   </time>
-  <time ng-if="!$ctrl.build.stop_time && $ctrl.build.start_time">
+  <time ng-if="!$ctrl.build.stop_time && $ctrl.build.start_time" title="Build started {{$ctrl.build.start_time | date:'MMM/dd HH:mm'}}">
     {{$ctrl.build.start_time | date:'MMM/dd HH:mm'}}
   </time>
-  <time ng-if="$ctrl.build.stop_time">
+  <time ng-if="$ctrl.build.stop_time" title="Build has started {{$ctrl.build.start_time | date:'MMM/dd HH:mm'}} and ended {{$ctrl.build.stop_time | date:'MMM/dd HH:mm'}}">
     {{$ctrl.build.stop_time | date:'MMM/dd HH:mm'}}
   </time>
   <br>
