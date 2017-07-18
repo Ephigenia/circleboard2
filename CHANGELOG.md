@@ -1,3 +1,14 @@
+<a name="2.5.1"></a>
+## [2.5.1](https://github.com/ephigenia/circleboard2/compare/v2.5.0...v2.5.1) (2017-07-18)
+
+
+### Bug Fixes
+
+* updates node version ([36c2bf2](https://github.com/ephigenia/circleboard2/commit/36c2bf2))
+* updates packages to their latest ([9b65623](https://github.com/ephigenia/circleboard2/commit/9b65623))
+
+
+
 <a name="2.5.0"></a>
 # [2.5.0](https://github.com/ephigenia/circleboard2/compare/v2.4.0...v2.5.0) (2017-01-25)
 
