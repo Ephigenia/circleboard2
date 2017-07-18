@@ -33,7 +33,7 @@
     "url": "https://github.com/ephigenia/circleboard2/issues"
   },
   "engines": {
-    "node": "^6.9.1",
+    "node": "^8.1.4",
     "npm": "^3.10.8"
   },
   "scripts": {

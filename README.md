@@ -16,7 +16,7 @@ A tabular display of the most recent builds on circleci for use as a build monit
 
 ## Demo/Your Board
 
-There’s a alway up to date version running at https://circleboard2.herokuapp.com/ where you can set you own [CircleCi API Token](https://circleci.com/account/api) and use it as your dashboard.
+The latest stable version of this is running on https://circleboard2.herokuapp.com/ where you can set you own [CircleCi API Token](https://circleci.com/account/api) and use it as your dashboard.
 
 ## Deployment
 
