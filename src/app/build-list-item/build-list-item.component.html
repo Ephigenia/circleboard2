@@ -1,0 +1,76 @@
+<td>
+  <i class="fa fa-calendar-check-o" aria-hidden="true" *ngIf="item.outcome === 'success'"></i>
+  <i class="fa fa-calendar-o" aria-hidden="true" *ngIf="!item.outcome"></i>
+  <i class="fa fa-calendar-times-o" aria-hidden="true" *ngIf="item.outcome && item.outcome !== 'success'"></i>
+  <time *ngIf="!item.stop_time && !item.start_time" title="Build has been triggered, but not yet started.">
+    {{ item.author_date | date: 'MMM/dd HH:mm' }}
+  </time>
+  <time *ngIf="!item.stop_time && item.start_time" [attr.datetime]="item.start_time" title="Build started {{ item.start_time | date:'medium' }}">
+    {{ item.start_time | date:'MMM/dd HH:mm' }}
+  </time>
+  <time *ngIf="item.stop_time" title="Build has started {{ item.start_time | date:'medium' }} and ended {{ item.stop_time | date:'medium' }}">
+    {{ item.stop_time | date:'MMM/dd HH:mm' }}
+  </time>
+  <br>
+  <span class="text-muted" *ngIf="item.build_time_millis" title="build took {{ item.build_time_millis / 1000 }}s">
+    <i class="fa fa-clock-o" aria-hidden="true"></i>
+    {{ item.build_time_millis | date:'mm:ss' }}
+  </span>
+</td>
+<td>
+  <a href="{{ item.compare }}" target="_blank" title="Open the changes on github">
+    <code *ngIf="item.vcs_revision">{{ item.vcs_revision.substr(0,7) }}</code>
+  </a><br>
+  <a href="{{ item.build_url }}" target="_blank" title="the build number, click to open the build on circleci">#{{ item.build_num }}</a>
+</td>
+<td>
+  <strong>
+    <a href="{{ item.vcs_url }}" target="_blank" title="the repository name, click to open the repository on github">{{ item.reponame }}</a>
+    {{ item.branch }}
+  </strong>
+  <a href="{{ item.build_url }}" *ngIf="item.has_artifacts" target="_blank" title="this build has artifacts, click to open"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+  <br>
+  <span class="text-muted">{{ item.subject }}</span>
+
+  <!-- list workflow job items if there are any -->
+  <ul class="list-inline" *ngIf="item.jobs">
+    <li *ngFor="let job of item.jobs" class="list-inline-item">
+      <a href="{{ job.build_url }}" class="badge"
+      title="{{ job.lifecycle}} {{ job.outcome }}"
+      [ngClass]="{
+        'badge-secondary': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf(job.lifecycle) > -1,
+        'badge-primary': ['running'].indexOf(job.lifecycle) > -1,
+        'badge-success': ['success'].indexOf(job.outcome) > -1,
+        'badge-warning': ['canceled', 'no_tests'].indexOf(job.outcome) > -1,
+        'badge-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf(job.outcome) > -1
+      }">
+        {{job.workflows.job_name}}
+        <i *ngIf="job.has_artifacts" class="fa fa-paperclip" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+
+</td>
+<td title="{{ committerTitle }}">
+  <i class="fa fa-user-circle-o" aria-hidden="true" *ngIf="item.committer_name"></i>
+  {{ item.committer_name }}
+</td>
+<td *ngIf="item.lifecycle === 'finished'">
+  <span class="badge text-uppercase"
+    [ngClass]="{
+      'badge-success': ['success'].indexOf(item.outcome) > -1,
+      'badge-warning': ['canceled', 'no_tests'].indexOf(item.outcome) > -1,
+      'badge-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf(item.outcome) > -1
+    }">
+  {{ item.outcome }}
+  </span>
+</td>
+<td *ngIf="item.lifecycle !== 'finished'">
+  <span class="badge text-uppercase"
+    [ngClass]="{
+      'badge-secondary': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf(item.lifecycle) > -1,
+      'badge-primary': ['running'].indexOf(item.lifecycle) > -1
+    }">
+    {{ item.lifecycle }}
+  </span>
+</td>

@@ -1,0 +1,20 @@
+<div *ngIf="showConfigMessage" class="alert alert-warning" role="alert">
+  <p class="mb-0">
+    This is probably the first time you’ve started CircleBoard.<br>
+    To make it work <a [routerLink]="['config']">set a API Token in the Configuration</a>.
+  </p>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  <blockquote>
+    {{ errorMessage }}
+  </blockquote>
+  <p class="mb-0">
+    This may happen when the api token which was used is out of date, deleted or invalid.<br>
+    Check the token and try again. <a [routerLink]="['config']">Change API Token in the Configuration</a>.
+  </p>
+</div>
+
+<app-build-list [items]="builds" *ngIf="builds && builds.length > 0"></app-build-list>
+<div *ngIf="builds && builds.length === 0" class="alert alert-warning" role="alert">
+  There are no builds that can be displayed.
+</div>

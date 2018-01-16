@@ -1,0 +1,15 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Revision</th>
+      <th>Project &amp; Branch</th>
+      <th>Author</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr app-build-list-workflow-item *ngFor="let item of items" [items]="item"></tr> -->
+    <tr app-build-list-item *ngFor="let item of items" [item]="item"></tr>
+  </tbody>
+</table>

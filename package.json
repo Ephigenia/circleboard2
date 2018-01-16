@@ -1,6 +1,6 @@
 {
   "name": "circleboard",
-  "version": "2.5.1",
+  "version": "3.0.0-dev",
   "description": "tabular display of the latest builds on CircleCi",
   "keywords": [
     "board",
@@ -32,33 +32,59 @@
   "bugs": {
     "url": "https://github.com/ephigenia/circleboard2/issues"
   },
-  "engines": {
-    "node": "^8.1.4",
-    "npm": "^3.10.8"
-  },
   "scripts": {
+    "build": "ng build",
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
-    "commitmsg": "conventional-changelog-lint -e",
-    "lint": "eslint source/scripts",
-    "postinstall": "bower install --force",
+    "changelog:preview": "conventional-changelog --output-unreleased -p angular",
+    "e2e": "ng e2e",
+    "lint": "ng lint",
+    "ng": "ng",
     "postversion": "git push && git push --tags",
-    "prestart": "npm install",
     "preversion": "npm test",
-    "start": "http-server source -c-1",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "version": "npm run changelog && git add CHANGELOG.md"
+    "start": "ng serve",
+    "test": "ng test -- --single-run --code-coverage",
+    "tdd": "ng test -- --watch=true --reporters=progress",
+    "update": "npm-check --update --specials=bin",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "version:recommend": "conventional-recommended-bump --preset angular"
   },
   "dependencies": {
-    "bower": "1.8.0",
-    "http-server": "^0.10.0"
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "@angular/http": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "core-js": "^2.5.3",
+    "npm-check": "^5.5.2",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.20"
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^1.2.0",
-    "conventional-changelog-lint": "^2.1.1",
-    "eslint-config-angular": "^0.5.0",
-    "eslint-config-google": "^0.9.1",
-    "eslint-plugin-angular": "^1.0.0",
-    "eslint": "^4.2.0",
-    "husky": "^0.14.3"
+    "@angular/cli": "^1.6.4",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
+    "@types/jasmine": "^2.8.4",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/node": "^9.3.0",
+    "codelyzer": "^4.0.2",
+    "conventional-changelog-cli": "^1.3.5",
+    "conventional-recommended-bump": "^1.1.0",
+    "jasmine-core": "^2.8.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^1.3.3",
+    "karma-jasmine": "^1.1.1",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-spec-reporter": "0.0.32",
+    "protractor": "^5.2.2",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.6.2"
   }
 }

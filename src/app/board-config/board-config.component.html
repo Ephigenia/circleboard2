@@ -1,0 +1,66 @@
+<div class="container">
+  <header>
+    <h1>Board-Config</h1>
+  </header>
+  <section>
+    <form (ngSubmit)="submit()" #configForm="ngForm">
+      <fieldset>
+        <div class="form-group">
+          <label for="boardConfigApiKey">
+            CircleCi API-Key
+          </label>
+          <input
+            type="text"
+            name="apiKey"
+            class="form-control"
+            id="boardConfigApiKey"
+            aria-describedby="boardConfigApiKeyHelp"
+            placeholder="enter the api key"
+            [ngClass]="{
+              'form-control': true,
+              'is-invalid': apiKey.invalid,
+              'is-valid': apiKey.valid
+            }"
+            required
+            pattern="[A-Fa-f0-9]{40}"
+            [(ngModel)]="config.apiKey"
+            #apiKey="ngModel"
+            >
+          <small id="boardConfigApiKeyHelp" class="form-text text-muted">
+            It’s recommended to create an API Token which is exclusively used for this dashboard:
+            <a href="https://circleci.com/account/api" target="_blank" rel="external">https://circleci.com/account/api</a>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="boardConfigApiKey">
+            Refresh Interval
+          </label>
+          <input
+            type="number"
+            name="refreshInterval"
+            class="form-control"
+            id="boardConfigApiKey"
+            aria-describedby="boardConfigRefreshIntervalHelp"
+            placeholder="interval in seconds"
+            [ngClass]="{
+              'form-control': true,
+              'is-invalid': refreshInterval.invalid,
+              'is-valid': refreshInterval.valid
+            }"
+            required
+            min="10"
+            max="3600"
+            [(ngModel)]="config.refreshInterval"
+            #refreshInterval="ngModel"
+            >
+          <small id="boardConfigRefreshIntervalHelp" class="form-text text-muted">
+            Defines the interval between polling the builds from CircleCi in seconds.
+          </small>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!configForm.form.valid">
+          Save
+        </button>
+      </fieldset>
+    </form>
+  </section>
+</div>

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-fixed-top navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1" [routerLink]="['/']">CircleBoard 3.0</span>
+
+  <div class="text-right">
+    <div class="btn-group" role="group" aria-label="set font size">
+      <button
+        class="btn btn-outline-secondary"
+        title="increase font size"
+        (click)="increaseFontSize()"
+      >
+        <i class="fa fa-search-plus" aria-hidden="true"></i>
+      </button>
+      <button
+        class="btn btn-outline-secondary"
+        title="decrease font size"
+        (click)="decreaseFontSize()"
+      >
+        <i class="fa fa-search-minus" aria-hidden="true"></i>
+      </button>
+    </div>
+    <button class="btn btn-outline-secondary" title="adjust all settings" [routerLink]="['config']">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+    </button>
+  </div>
+</nav>
