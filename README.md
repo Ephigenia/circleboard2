@@ -9,7 +9,7 @@
 # Features
 
 - refreshing list of all build jobs in order of creation
-- optional workflow grouping
+- optional grouping of jobs from the same workflow
 - circleci token stored in localstorage, can also be injected via GET-parameter (`?apiToken=<value>`)
 
 # Demo
@@ -57,10 +57,11 @@ Make sure you’re using properly formatted commit messages like specified in th
 - [ ] add PR Request Template
 - [ ] add Issue Request Template
 - [ ] customizable columns
-- [ ] optional grouping of workflows
+- [x] optional grouping of workflows
 - [ ] list of repo/branchnames in config which are listed as bootstrap-cards to monitor specific repo’s states
 - [ ] dark mode
 - [ ] dark mode switch in config
 - [ ] auto-dark mode when sun is down in timezone
 - [ ] footer with version
 - [ ] footer with github link
+- [ ] switch from `ng serve` to dist http-server

@@ -57,6 +57,14 @@
             Defines the interval between polling the builds from CircleCi in seconds.
           </small>
         </div>
+        <div class="form-group">
+          <div class="form-check">
+            <label class="form-check-label" for="boardConfigGroupWorkflows">
+              <input class="form-check-input" type="checkbox" id="boardConfigGroupWorkflows" name="groupWorkflows" [(ngModel)]="config.groupWorkflows">
+              group workflow jobs
+            </label>
+          </div>
+        </div>
         <button type="submit" class="btn btn-primary" [disabled]="!configForm.form.valid">
           Save
         </button>
