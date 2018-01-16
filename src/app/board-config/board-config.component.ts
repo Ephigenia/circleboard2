@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { BoardConfigService } from '../board-config.service';
+import { BoardConfigService, BoardConfig } from '../board-config.service';
 
 @Component({
   selector: 'app-board-config',
@@ -8,7 +8,7 @@ import { BoardConfigService } from '../board-config.service';
 })
 export class BoardConfigComponent {
 
-  public config: object = {};
+  public config: BoardConfig;
 
   public constructor(
     private configService: BoardConfigService
