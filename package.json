@@ -44,6 +44,7 @@
     "lint": "ng lint",
     "ng": "ng",
     "postversion": "git push && git push --tags",
+    "postinstall": "echo $NODE_ENV",
     "preversion": "npm test",
     "start": "ng serve",
     "test": "ng test -- --single-run --code-coverage",
