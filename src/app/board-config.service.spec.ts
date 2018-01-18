@@ -29,7 +29,7 @@ describe('BoardConfig', () => {
   });
   describe('merge', () => {
     it('doesn’t change any config vars when the object is empty', () => {
-      config.merge({})
+      config.merge({});
       expect(config.apiKey).toEqual('initial-api-key');
       expect(config.groupWorkflows).toBeFalsy();
     });
@@ -41,6 +41,6 @@ describe('BoardConfig', () => {
       config.merge({ groupWorkflows: 'yes' });
       expect(config.apiKey).toEqual('new-api-key');
       expect(config.groupWorkflows).toEqual(true);
-    })
+    });
   });
 });

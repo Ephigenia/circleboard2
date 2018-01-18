@@ -28,7 +28,7 @@ export class CircleCiService {
   ) { }
 
   public getRecentBuilds(token, limit: number = 30): Observable<any> {
-    const url = 'https://circleci.com/api/v1/recent-builds';
+    const url = 'https://circleci.com/api/v1/recent-bs';
     const options = {
       params: {
         'circle-token': token,
@@ -50,7 +50,7 @@ export class CircleCiService {
 
       // find the first build with the same workflow id and append this build
       // to it
-      let workflowBuild = builds
+      const workflowBuild = builds
         .filter(b => b.workflows)
         .find(b => b.workflows.workflow_id === build.workflows.workflow_id);
       workflowBuild.jobs = workflowBuild.jobs || [];
@@ -73,21 +73,21 @@ export class CircleCiService {
         // order the jobs by their creation time
         build.jobs.sort((a, b) => {
           return new Date(a.start_time).getTime() - new Date(b.start_time).getTime();
-        })
-        build.lifecycle = build.jobs.reduce((lifecycle, build) => {
+        });
+        build.lifecycle = build.jobs.reduce((lifecycle, b) => {
           if (!lifecycle) {
-            lifecycle = build.lifecycle;
-          } else if (build.lifecycle !== BUILD_LIFECYCLE.FINISHED) {
-            lifecycle = build.lifecycle
+            lifecycle = b.lifecycle;
+          } else if (b.lifecycle !== BUILD_LIFECYCLE.FINISHED) {
+            lifecycle = b.lifecycle;
           }
           return lifecycle;
         }, null);
         // reduce the outcome of the workflow to the lowes of the jobs
-        build.outcome = build.jobs.reduce((outcome, build) => {
+        build.outcome = build.jobs.reduce((outcome, b) => {
           if (!outcome) {
-            return build.outcome;
-          } else if (build.outcome !== BUILD_OUTCOME.SUCCESS) {
-            return build.outcome;
+            return b.outcome;
+          } else if (b.outcome !== BUILD_OUTCOME.SUCCESS) {
+            return b.outcome;
           }
           return outcome;
         }, null);

@@ -22,11 +22,11 @@ export class AppComponent {
         const config = this.configService.read();
         config.merge(params);
         this.configService.save(config);
-      })
+      });
 
     // subscribe to font size changes and set them on the body
     this.configService.change$.subscribe((config) => {
-      document.body.style.fontSize = `${config.fontSize}px`
-    })
+      document.body.style.fontSize = `${config.fontSize}px`;
+    });
   }
 }

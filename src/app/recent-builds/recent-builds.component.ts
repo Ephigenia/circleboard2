@@ -18,7 +18,7 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
 
   public errorMessage: string;
 
-  public showConfigMessage: boolean = false;
+  public showConfigMessage = false;
 
   // helper subscription which is completed when the component gets destroyed
   private ngUnsubscribe: Subject<boolean> = new Subject<boolean>();

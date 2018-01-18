@@ -5,6 +5,14 @@ const path = require('path');
 module.exports = function (config) {
 
   config.set({
+
+    // increasing the timeout limits to reduce the cases where circleci fails
+    // with the message "Disconnected (1 times), because no message in 10000 ms"
+    browserNoActivityTimeout : 60000, //default 10000
+    browserDisconnectTimeout : 10000, // default 2000
+    browserDisconnectTolerance : 1, // default 0
+    captureTimeout: 60000,
+
     basePath: '',
     frameworks: ['jasmine', '@angular/cli'],
     plugins: [
@@ -24,10 +32,20 @@ module.exports = function (config) {
       dir: path.join(__dirname, 'tests', 'coverage'),
       fixWebpackSourcePaths: true
     },
+    junitReporter: {
+      outputDir: path.join(__dirname, 'tests'),
+      outputFile: 'junit.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
+      suite: '', // suite will become the package name attribute in xml testsuite element
+      useBrowserName: false // add browser name to report and classes names
+    },
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['spec', 'kjhtml', 'junit'],
+    reporters: [
+      'spec',
+      'junit',
+      'coverage-istanbul'
+    ],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

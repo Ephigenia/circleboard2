@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 import { BUILD_LIFECYCLE, BUILD_OUTCOME } from '../circle-ci.service';
 
 @Component({
-  selector: '[app-build-list-item]',
+  selector: 'app-build-list-item',
   templateUrl: './build-list-item.component.html',
   providers: [DatePipe],
 })
@@ -35,7 +35,7 @@ export class BuildListItemComponent implements OnChanges {
   }
 
   private buildCommitterTitle(build): string {
-    if (!build) return '';
+    if (!build) { return ''; }
     const parts = [
       build.committer_name,
     ];

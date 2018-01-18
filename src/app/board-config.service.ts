@@ -7,10 +7,10 @@ const FONT_SIZE_MIN = 8;
 
 export class BoardConfig {
 
-  public apiKey: string = '';
-  private _groupWorkflows: boolean = false;
-  private _refreshInterval: number = 20;
-  private _fontSize: number = 16;
+  public apiKey = '';
+  private _groupWorkflows = false;
+  private _refreshInterval = 20;
+  private _fontSize = 16;
 
   get groupWorkflows() {
     return this._groupWorkflows;

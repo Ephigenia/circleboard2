@@ -20,7 +20,8 @@ describe('CircleCiService', () => {
   }));
 
   describe('groupByWorkflows', () => {
-    it('only sets the workflow to successfull when all jobs are successful', inject([CircleCiService], (service: CircleCiService) => {
+    it('only sets the workflow to successfull when all jobs are successful',
+      inject([CircleCiService], (service: CircleCiService) => {
       const data = [
         {
           workflows: { workflow_id: 'cef3a3a5-9d8d-46db-b10e-964bd2fca3bb' },
@@ -38,7 +39,8 @@ describe('CircleCiService', () => {
       const result = service.groupByWorkflows(data);
       expect(result[0].outcome).toEqual(BUILD_OUTCOME.SUCCESS);
     }));
-    it('failes the workflow when only one is failed', inject([CircleCiService], (service: CircleCiService) => {
+    it('failes the workflow when only one is failed',
+      inject([CircleCiService], (service: CircleCiService) => {
       const data = [
         {
           workflows: { workflow_id: 'cef3a3a5-9d8d-46db-b10e-964bd2fca3bb' },
@@ -57,7 +59,8 @@ describe('CircleCiService', () => {
       expect(result[0].outcome).toEqual(BUILD_OUTCOME.FAILED);
     }));
 
-    it('orders the jobs by their start time', inject([CircleCiService], (service: CircleCiService) => {
+    it('orders the jobs by their start time',
+      inject([CircleCiService], (service: CircleCiService) => {
       const buildsWithWorkflows = [
         // two items that belong to the same workflow but have different names
         // and outcomes
@@ -106,7 +109,8 @@ describe('CircleCiService', () => {
       expect(firstWorkflow.jobs[0].start_time).toBeLessThan(firstWorkflow.jobs[1].start_time);
     }));
 
-    it('groups the jobs which belong to the same workflow into a new property "jobs"', inject([CircleCiService], (service: CircleCiService) => {
+    it('groups the jobs which belong to the same workflow into a new property "jobs"',
+      inject([CircleCiService], (service: CircleCiService) => {
       const buildsWithWorkflows = [
         // two items that belong to the same workflow but have different names
         // and outcomes
