@@ -5,7 +5,10 @@ import { DatePipe } from '@angular/common';
 import { BUILD_LIFECYCLE, BUILD_OUTCOME } from '../circle-ci.service';
 
 @Component({
-  selector: 'app-build-list-item',
+  // unknown how to fix this when the selector must be used on a tr-tag
+  /* tslint:disable:component-selector */
+  selector: '[app-build-list-item]',
+  /* tslint:enable:component-selector */
   templateUrl: './build-list-item.component.html',
   providers: [DatePipe],
 })
@@ -35,7 +38,9 @@ export class BuildListItemComponent implements OnChanges {
   }
 
   private buildCommitterTitle(build): string {
-    if (!build) { return ''; }
+    if (!build) {
+      return '';
+    }
     const parts = [
       build.committer_name,
     ];

@@ -41,7 +41,7 @@
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
     "changelog:preview": "conventional-changelog --output-unreleased -p angular",
     "e2e": "ng e2e",
-    "lint": "ng lint",
+    "lint": "ng lint --format stylish",
     "lint-fix": "ng lint --fix",
     "ng": "ng",
     "postversion": "git push && git push --tags",

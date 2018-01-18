@@ -28,7 +28,7 @@ export class CircleCiService {
   ) { }
 
   public getRecentBuilds(token, limit: number = 30): Observable<any> {
-    const url = 'https://circleci.com/api/v1/recent-bs';
+    const url = 'https://circleci.com/api/v1/recent-builds';
     const options = {
       params: {
         'circle-token': token,
