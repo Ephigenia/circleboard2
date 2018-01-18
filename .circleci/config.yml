@@ -9,7 +9,7 @@ version: 2
 
 # References with an "&" can be reused
 references:
-  container_config_browser: &container_config_browser
+  container_config: &container_config
     docker:
       # https://circleci.com/docs/2.0/circleci-images/#nodejs
       - image: circleci/node:8.8.1-browsers
@@ -20,7 +20,7 @@ jobs:
   # setup the repository, install node packages or use the ones from previous
   # builds that are in the cache
   setup:
-    <<: *container_config
+    <<: *&container_config
     steps:
       - checkout
       - restore_cache:
@@ -37,7 +37,7 @@ jobs:
           paths: ./*
 
   test:
-    <<: *container_config_browser
+    <<: *container_config
     steps:
       - *attach_workspace
       - run: npm run test
@@ -48,7 +48,7 @@ jobs:
           path: ./tests/
 
   lint:
-    <<: *container_config
+    <<: *&container_config
     steps:
       - *attach_workspace
       - run: npm run lint
