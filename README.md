@@ -78,10 +78,10 @@ Example X config file:
 
 # Plan
 
-- [ ] add screenshot to readme
+- [x] add screenshot to readme
 - [ ] setup commitlint
 - [ ] config page with hint for apiToken as GET parameter
-- [ ] review circleCi configuration
+- [x] review circleCi configuration
 - [ ] add CONTRIBUTION files
 - [ ] add PR Request Template
 - [ ] add Issue Request Template
