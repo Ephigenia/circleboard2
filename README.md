@@ -8,6 +8,8 @@
 
 # Features
 
+![Screenshot of Circleboard in Action from 2018-01-18](https://raw.githubusercontent.com/Ephigenia/circleboard2/next/screenshot.png)
+
 - refreshing list of all build jobs in order of creation
 - optional grouping of jobs from the same workflow
 - circleci token stored in localstorage, can also be injected via GET-parameter (`?apiToken=<value>`)
