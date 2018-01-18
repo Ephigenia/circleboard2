@@ -31,9 +31,9 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     const config = this.configService.read();
 
-    this.showConfigMessage = !config.apiKey;
+    this.showConfigMessage = !config.apiToken;
 
-    if (config.apiKey) {
+    if (config.apiToken) {
       Observable.timer(0, config.refreshInterval * 1000)
         .takeUntil(this.ngUnsubscribe)
         .flatMap(() => this.circleci.getRecentBuilds(config.apiToken, 100))

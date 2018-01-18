@@ -49,8 +49,8 @@
     "preversion": "npm test",
     "start": "ng serve",
     "start:heroku": "http-server dist -c-1",
-    "test": "ng test -- --single-run --code-coverage",
-    "tdd": "ng test -- --watch=true --reporters=progress",
+    "test": "ng test --single-run --code-coverage",
+    "tdd": "ng test --watch --reporters=progress",
     "update": "npm-check --update --specials=bin",
     "version": "npm run changelog && git add CHANGELOG.md",
     "version:recommend": "conventional-recommended-bump --preset angular"
