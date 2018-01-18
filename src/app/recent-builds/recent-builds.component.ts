@@ -36,7 +36,7 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
     if (config.apiKey) {
       Observable.timer(0, config.refreshInterval * 1000)
         .takeUntil(this.ngUnsubscribe)
-        .flatMap(() => this.circleci.getRecentBuilds(config.apiKey, 100))
+        .flatMap(() => this.circleci.getRecentBuilds(config.apiToken, 100))
         .subscribe(
           (builds) => {
             if (config.groupWorkflows) {

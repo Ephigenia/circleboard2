@@ -6,40 +6,40 @@
     <form (ngSubmit)="submit()" #configForm="ngForm">
       <fieldset>
         <div class="form-group">
-          <label for="boardConfigApiKey">
+          <label for="boardConfigApiToken">
             CircleCi API-Key
           </label>
           <input
             type="text"
-            name="apiKey"
+            name="apiToken"
             class="form-control"
-            id="boardConfigApiKey"
-            aria-describedby="boardConfigApiKeyHelp"
+            id="boardConfigApiToken"
+            aria-describedby="boardConfigApiTokenHelp"
             placeholder="enter the api key"
             [ngClass]="{
               'form-control': true,
-              'is-invalid': apiKey.invalid,
-              'is-valid': apiKey.valid
+              'is-invalid': apiToken.invalid,
+              'is-valid': apiToken.valid
             }"
             required
             pattern="[A-Fa-f0-9]{40}"
-            [(ngModel)]="config.apiKey"
-            #apiKey="ngModel"
+            [(ngModel)]="config.apiToken"
+            #apiToken="ngModel"
             >
-          <small id="boardConfigApiKeyHelp" class="form-text text-muted">
-            It’s recommended to create an API Token which is exclusively used for this dashboard:
-            <a href="https://circleci.com/account/api" target="_blank" rel="external">https://circleci.com/account/api</a>
+          <small id="boardConfigApiTokenHelp" class="form-text text-muted">
+            Optain a application specific api token in your <a href="https://circleci.com/account/api" target="_blank" rel="external">CircleCi Account Settings</a>.<br>
+            It’s possible ot inject the token value via GET URL parameter: <code>?apiToken=&lt;value&gt;</code>.
           </small>
         </div>
         <div class="form-group">
-          <label for="boardConfigApiKey">
+          <label for="boardConfigApiToken">
             Refresh Interval
           </label>
           <input
             type="number"
             name="refreshInterval"
             class="form-control"
-            id="boardConfigApiKey"
+            id="boardConfigRefreshInterval"
             aria-describedby="boardConfigRefreshIntervalHelp"
             placeholder="interval in seconds"
             [ngClass]="{
@@ -54,7 +54,8 @@
             #refreshInterval="ngModel"
             >
           <small id="boardConfigRefreshIntervalHelp" class="form-text text-muted">
-            Defines the interval between polling the builds from CircleCi in seconds. (min 10 – max 3600)
+            Defines the interval between polling the builds from CircleCi in seconds. (min 10 – max 3600)<br>
+            It’s possible ot inject the token value via GET URL parameter. For Example: <code>?refreshInterval=&lt;30&gt;</code>.
           </small>
         </div>
         <div class="form-group">
@@ -64,6 +65,10 @@
               group workflow jobs
             </label>
           </div>
+          <small id="boardConfigRefreshIntervalHelp" class="form-text text-muted">
+            Groups build jobs which belong to the same workflow in one table row.<br>
+            It’s possible ot inject the token value via GET URL parameter. For Example: <code>?groupWorkflows=&lt;yes&gt;</code>.
+          </small>
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="!configForm.form.valid">
           Save

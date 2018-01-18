@@ -6,7 +6,7 @@ describe('BoardConfig', () => {
   let config;
   beforeEach(() => {
     config = new BoardConfig({
-      apiKey: 'initial-api-key',
+      apiToken: 'initial-api-token',
       groupWorkflows: false
     });
   });
@@ -30,16 +30,16 @@ describe('BoardConfig', () => {
   describe('merge', () => {
     it('doesn’t change any config vars when the object is empty', () => {
       config.merge({});
-      expect(config.apiKey).toEqual('initial-api-key');
+      expect(config.apiToken).toEqual('initial-api-token');
       expect(config.groupWorkflows).toBeFalsy();
     });
     it('merges from the given params object', () => {
-      config.merge({ apiKey: 'new-api-key' });
-      expect(config.apiKey).toEqual('new-api-key');
+      config.merge({ apiToken: 'new-api-token' });
+      expect(config.apiToken).toEqual('new-api-token');
       expect(config.groupWorkflows).toEqual(false);
 
       config.merge({ groupWorkflows: 'yes' });
-      expect(config.apiKey).toEqual('new-api-key');
+      expect(config.apiToken).toEqual('new-api-token');
       expect(config.groupWorkflows).toEqual(true);
     });
   });

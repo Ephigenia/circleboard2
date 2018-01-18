@@ -7,7 +7,7 @@ const FONT_SIZE_MIN = 8;
 
 export class BoardConfig {
 
-  public apiKey = '';
+  public apiToken = '';
   private _groupWorkflows = false;
   private _refreshInterval = 20;
   private _fontSize = 16;
@@ -49,7 +49,7 @@ export class BoardConfig {
       this.groupWorkflows = config['groupWorkflows'];
     }
     this.refreshInterval = config['refreshInterval'] || this.refreshInterval;
-    this.apiKey = config['apiKey'] || this.apiKey;
+    this.apiToken = config['apiToken'] || this.apiToken;
     this.fontSize = config['fontSize'] || this.fontSize;
     return this;
   }
