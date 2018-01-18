@@ -1,0 +1,67 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check
+#
+# - https://circleci.com/docs/2.0/language-javascript/ for more details
+# - https://circleci.com/docs/2.0/configuration-reference/
+#
+version: 2
+
+# References with an "&" can be reused
+references:
+  container_config_browser: &container_config_browser
+    docker:
+      # https://circleci.com/docs/2.0/circleci-images/#nodejs
+      - image: circleci/node:8.8.1-browsers
+    working_directory: ~/repo
+
+jobs:
+
+  # setup the repository, install node packages or use the ones from previous
+  # builds that are in the cache
+  setup:
+    <<: *container_config
+    steps:
+      - checkout
+      - restore_cache:
+          name: restore cached npm packages
+          key: npm-packages-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: npm-packages-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules/
+            - ~/.npm/
+      - persist_to_workspace:
+          root: ~/repo
+          paths: ./*
+
+  test:
+    <<: *container_config_browser
+    steps:
+      - *attach_workspace
+      - run: npm run test
+      - store_artifacts:
+          path: ./tests/coverage
+          destination: coverage-unit-tests
+      - store_test_results:
+          path: ./tests/
+
+  lint:
+    <<: *container_config
+    steps:
+      - *attach_workspace
+      - run: npm run lint
+
+
+workflows:
+  version: 2
+  default:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
+      - lint:
+          requires:
+            - setup
