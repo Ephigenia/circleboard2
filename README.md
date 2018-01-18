@@ -81,10 +81,10 @@ Example X config file:
 - [ ] add screenshot to readme
 - [ ] setup commitlint
 - [ ] config page with hint for apiToken as GET parameter
-- [ ] review circleCi configuration
+- [ ] review circleCi configuration
 - [ ] add CONTRIBUTION files
-- [ ] add PR Request Template
-- [ ] add Issue Request Template
+- [ ] add PR Request Template
+- [ ] add Issue Request Template
 - [ ] customizable columns
 - [x] optional grouping of workflows
 - [ ] list of repo/branchnames in config which are listed as bootstrap-cards to monitor specific repo’s states
@@ -93,4 +93,4 @@ Example X config file:
 - [ ] auto-dark mode when sun is down in timezone
 - [ ] footer with version
 - [ ] footer with github link
-- [ ] switch from `ng serve` to dist http-server
+- [ ] switch from `ng serve` to dist http-server
