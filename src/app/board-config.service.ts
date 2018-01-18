@@ -8,10 +8,21 @@ const FONT_SIZE_MIN = 8;
 export class BoardConfig {
 
   public apiKey: string = '';
-  public groupWorkflows: boolean = false;
-
+  private _groupWorkflows: boolean = false;
   private _refreshInterval: number = 20;
   private _fontSize: number = 16;
+
+  get groupWorkflows() {
+    return this._groupWorkflows;
+  }
+  set groupWorkflows(value) {
+    if (typeof value === 'string') {
+      value = /true|1|yes|ja/i.test(value);
+    } else {
+      value = Boolean(value);
+    }
+    this._groupWorkflows = value;
+  }
 
   get fontSize() {
     return this._fontSize;
@@ -24,13 +35,23 @@ export class BoardConfig {
     return this._refreshInterval;
   }
   set refreshInterval(value) {
-    this._refreshInterval = Math.min(Math.max(value, 15), 3600);
+    this._refreshInterval = Math.min(Math.max(value, 10), 3600);
   }
 
   constructor(config: object|null = null) {
     if (config) {
       Object.assign(this, config);
     }
+  }
+
+  public merge(config: object) {
+    if (config['groupWorkflows']) {
+      this.groupWorkflows = config['groupWorkflows'];
+    }
+    this.refreshInterval = config['refreshInterval'] || this.refreshInterval;
+    this.apiKey = config['apiKey'] || this.apiKey;
+    this.fontSize = config['fontSize'] || this.fontSize;
+    return this;
   }
 }
 

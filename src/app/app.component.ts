@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
@@ -10,28 +10,23 @@ import { BoardConfigService } from './board-config.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
-  title = 'app';
+export class AppComponent {
 
   constructor(
     private route: ActivatedRoute,
     private configService: BoardConfigService,
   ) {
-    // read ?apiKey=<value> from the uri
+    // on initialization read GET parameters
     this.route.queryParams
-      .map(params => params.apiKey)
-      .filter(v => v)
-      .subscribe((apiKey) => {
+      .subscribe((params) => {
         const config = this.configService.read();
-        config.apiKey = apiKey;
+        config.merge(params);
         this.configService.save(config);
       })
 
+    // subscribe to font size changes and set them on the body
     this.configService.change$.subscribe((config) => {
       document.body.style.fontSize = `${config.fontSize}px`
     })
   }
-
-  ngOnInit() {}
-
 }
