@@ -11,6 +11,7 @@
 - refreshing list of all build jobs in order of creation
 - optional grouping of jobs from the same workflow
 - circleci token stored in localstorage, can also be injected via GET-parameter (`?apiToken=<value>`)
+- inject other config settings via GET parameters (f.e. `?refreshInterval=20&groupWorkflows=true`)
 
 # Demo
 
@@ -46,6 +47,30 @@ Releasing a new version can be done using the "version" command from npm. This c
     npm version
 
 Make sure you’re using properly formatted commit messages like specified in the [angular commit guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md) so that the changelog can be generated properly.
+
+## Dashboard Display
+
+Using a [Raspberry Pi3](https://www.raspberrypi.org) as permanent dashboard display is very easy. Setup the raspberrypi with standard noobs and use the pre-installed chrome to startup automatically and open the circleboard.
+
+Example X config file:
+
+```
+# /home/pi/.config/lxsession/LXDE-pi/autostart
+
+# deactivated default lines
+#@lxpanel --profile LXDE-pi
+#@pcmanfm --desktop --profile LXDE-pi
+#@xscreensaver -no-splash
+#@point-rpi
+
+# now the new lines:
+# disable sleep mode
+@xset s off
+@xset -dpms
+@xset s noblank
+
+@chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --kiosk http://circleboard2-next.herokuapp.com/?apiToken=<your-api-token>&groupWorkflows=true&refreshInterval=15
+```
 
 # Plan
 
