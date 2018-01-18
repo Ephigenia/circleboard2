@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { BoardConfig } from './board-config.service';
 
-fdescribe('BoardConfig', () => {
+describe('BoardConfig', () => {
   let config;
   beforeEach(() => {
     config = new BoardConfig({
