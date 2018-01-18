@@ -11,7 +11,7 @@
 - refreshing list of all build jobs in order of creation
 - optional grouping of jobs from the same workflow
 - circleci token stored in localstorage, can also be injected via GET-parameter (`?apiToken=<value>`)
-- inject other config settings via GET parameters (f.e. `?refreshInterval=20&groupWorkflows=true`)
+- inject other config settings via GET parameters (f.e. `?refreshInterval=20&groupWorkflows=true&fontSize=20`)
 
 # Demo
 
@@ -69,7 +69,9 @@ Example X config file:
 @xset -dpms
 @xset s noblank
 
-@chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --kiosk http://circleboard2-next.herokuapp.com/?apiToken=<your-api-token>&groupWorkflows=true&refreshInterval=15
+# read about supported comamnd line arguemnts:
+# https://peter.sh/experiments/chromium-command-line-switches/
+@chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --kiosk http://circleboard2-next.herokuapp.com/?apiToken=<your-api-token>&groupWorkflows=true&refreshInterval=15&fontSize=18
 ```
 
 # Plan
