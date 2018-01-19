@@ -10,6 +10,9 @@ import { BUILD_LIFECYCLE, BUILD_OUTCOME } from '../circle-ci.service';
   selector: '[app-build-list-item]',
   /* tslint:enable:component-selector */
   templateUrl: './build-list-item.component.html',
+  styleUrls: [
+    './build-list-item.component.scss'
+  ],
   providers: [DatePipe],
 })
 export class BuildListItemComponent implements OnChanges {
