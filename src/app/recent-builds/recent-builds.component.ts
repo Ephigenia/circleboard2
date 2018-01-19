@@ -39,6 +39,7 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
         .flatMap(() => this.circleci.getRecentBuilds(config.apiToken, 100))
         .subscribe(
           (builds) => {
+            delete this.errorMessage;
             if (config.groupWorkflows) {
               this.builds = this.circleci.groupByWorkflows(builds);
             } else {

@@ -80,6 +80,7 @@ Example X config file:
 
 - [x] add screenshot to readme
 - [ ] setup commitlint
+- [ ] add countdown which shows how many seconds left till next update
 - [x] config page with hint for apiToken as GET parameter
 - [x] review circleCi configuration
 - [ ] add CONTRIBUTION files
