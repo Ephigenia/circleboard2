@@ -3,6 +3,10 @@
     <h1>Board-Config</h1>
   </header>
   <section>
+    <p class="alert alert-info">
+      All the configuration variables can be set via GET parameters in the URL.<br>
+      For example: <code>{{baseUrl}}/?refreshInterval=20&fontSize=22</code>
+    </p>
     <form (ngSubmit)="submit()" #configForm="ngForm">
       <fieldset>
         <div class="form-group">
