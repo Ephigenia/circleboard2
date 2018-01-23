@@ -4,17 +4,18 @@
     To make it work <a [routerLink]="['config']">set a API Token in the Configuration</a>.
   </p>
 </div>
-<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
-  <blockquote>
-    {{ errorMessage }}
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  <blockquote class="mb-0">
+    {{ error.message }}
   </blockquote>
-  <p class="mb-0">
+  <p class="mb-0" *ngIf="error.status >= 400 && error.status < 600">
     This may happen when the api token which was used is out of date, deleted or invalid.<br>
     Check the token and try again. <a [routerLink]="['config']">Change API Token in the Configuration</a>.
   </p>
 </div>
-
-<app-build-list [items]="builds" *ngIf="builds && builds.length > 0"></app-build-list>
-<div *ngIf="builds && builds.length === 0" class="alert alert-warning" role="alert">
-  There are no builds that can be displayed.
-</div>
+<ng-container *ngIf="builds">
+  <app-build-list [items]="builds" *ngIf="builds.length"></app-build-list>
+  <div *ngIf="!builds.length" class="alert alert-warning" role="alert">
+    There are no builds that can be displayed.
+  </div>
+</ng-container>

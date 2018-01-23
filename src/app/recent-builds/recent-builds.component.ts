@@ -16,7 +16,7 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
 
   public builds: Array<any> = [];
 
-  public errorMessage: string;
+  public error: Error;
 
   public showConfigMessage = false;
 
@@ -39,15 +39,18 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
         .flatMap(() => this.circleci.getRecentBuilds(config.apiToken, 100))
         .subscribe(
           (builds) => {
-            delete this.errorMessage;
+            // remove previous error
+            delete this.error;
             if (config.groupWorkflows) {
-              this.builds = this.circleci.groupByWorkflows(builds);
-            } else {
-              this.builds = builds;
+              builds = this.circleci.groupByWorkflows(builds);
             }
-          }, (err) => {
-            this.errorMessage = err.message;
-          });
+            this.builds = builds;
+          },
+          (err) => {
+            this.error = err
+            console.error(this.error);
+          }
+        );
     }
   }
 
