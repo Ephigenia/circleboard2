@@ -14,6 +14,7 @@
 - optional grouping of jobs from the same workflow
 - circleci token stored in localstorage, can also be injected via GET-parameter (`?apiToken=<value>`)
 - inject other config settings via GET parameters (f.e. `?refreshInterval=20&groupWorkflows=true&fontSize=20`)
+- message when device/client goes offline
 
 # Demo
 

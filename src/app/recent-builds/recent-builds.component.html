@@ -4,9 +4,13 @@
     To make it work <a [routerLink]="['config']">set a API Token in the Configuration</a>.
   </p>
 </div>
+<div *ngIf="(online$ | async) === false" class="alert alert-warning" role="alert">
+  You seem to be offline. The refreshing of the build list is stopped until the
+  browser goes online again. Please check the internet connection.
+</div>
 <div *ngIf="error" class="alert alert-danger" role="alert">
   <blockquote class="mb-0">
-    {{ error.message }}
+    {{ error.message || "unknown error" }}
   </blockquote>
   <p class="mb-0" *ngIf="error.status >= 400 && error.status < 600">
     This may happen when the api token which was used is out of date, deleted or invalid.<br>
