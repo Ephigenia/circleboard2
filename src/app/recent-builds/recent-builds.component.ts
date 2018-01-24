@@ -68,7 +68,8 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
           (err: Error) => {
             this.error = err;
             console.log(err);
-          }
+          },
+          () => console.log('completd')
         );
     }
   }
