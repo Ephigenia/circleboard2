@@ -1,7 +1,3 @@
-*Rewrite in newest angular version, alpha and continuously updated.*
-
-**Do not use in production**
-
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![CircleCI](https://circleci.com/gh/Ephigenia/circleboard2.svg?style=svg)](https://circleci.com/gh/Ephigenia/circleboard2)
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/circleboard2/badge.svg)](https://snyk.io/test/github/ephigenia/circleboard2)
