@@ -1,10 +1,13 @@
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/empty';
 import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/retryWhen';
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/fromEvent';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -63,14 +66,13 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
           }
           return builds;
         })
-        .subscribe(
-          (builds: any[]) => this.builds = builds,
-          (err: Error) => {
-            this.error = err;
-            console.log(err);
-          },
-          () => console.log('completd')
-        );
+        // continue when an error happend
+        .retryWhen((errors) => errors.map(error => {
+            this.error = error;
+            return error;
+          }).delay(config.refreshInterval * 1000)
+        )
+        .subscribe((builds: any[]) => this.builds = builds);
     }
   }
 
