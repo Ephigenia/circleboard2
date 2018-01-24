@@ -4,7 +4,7 @@
 
 # Features
 
-![Screenshot of Circleboard in Action from 2018-01-18](https://raw.githubusercontent.com/Ephigenia/circleboard2/next/screenshot.png)
+![Screenshot of Circleboard in Action from 2018-01-18](https://raw.githubusercontent.com/Ephigenia/circleboard2/master/screenshot.png)
 
 - refreshing list of all build jobs in order of creation
 - optional grouping of jobs from the same workflow
@@ -67,6 +67,11 @@ Example X config file:
 @xset s off
 @xset -dpms
 @xset s noblank
+
+# hide cursor
+# requires "unclutter" to be installed
+#   sudo apt-get install unclutter
+@unclutter -idle 0
 
 # read about supported comamnd line arguemnts:
 # https://peter.sh/experiments/chromium-command-line-switches/
