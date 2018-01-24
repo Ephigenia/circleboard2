@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
-import { ViewEncapsulation } from '@angular/core'; //add this
+import { ViewEncapsulation } from '@angular/core';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';

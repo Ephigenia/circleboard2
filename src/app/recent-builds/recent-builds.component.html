@@ -20,6 +20,6 @@
 <ng-container *ngIf="builds">
   <app-build-list [items]="builds" *ngIf="builds.length"></app-build-list>
   <div *ngIf="!builds.length && !error" class="alert alert-warning" role="alert">
-    There are no builds that can be displayed.
+    Right now there are no builds to display.
   </div>
 </ng-container>
