@@ -18,7 +18,7 @@
 
 # Demo
 
-The latest version of this is running on https://circleboard2-next.herokuapp.com/ where you can set you own [CircleCi API Token](https://circleci.com/account/api) using the gear icon in the main navigation bar and use it as your dashboard.
+The latest version of this is running on https://circleboard2.herokuapp.com/ where you can set you own [CircleCi API Token](https://circleci.com/account/api) using the gear icon in the main navigation bar and use it as your dashboard.
 
 # Deployment
 
@@ -74,7 +74,7 @@ Example X config file:
 
 # read about supported comamnd line arguemnts:
 # https://peter.sh/experiments/chromium-command-line-switches/
-@chromium-browser --noerrdialogs --incognito --disable-infobars --kiosk http://circleboard2-next.herokuapp.com/?apiToken=<your-api-token>&groupWorkflows=true&refreshInterval=15&fontSize=18
+@chromium-browser --noerrdialogs --incognito --disable-infobars --kiosk http://circleboard2.herokuapp.com/?apiToken=<your-api-token>&groupWorkflows=true&refreshInterval=15&fontSize=18
 ```
 
 # Plan
