@@ -9,8 +9,8 @@
   browser goes online again. Please check the internet connection.
 </div>
 <div *ngIf="error" class="alert alert-danger" role="alert">
-  <blockquote class="mb-0">
-    {{ error.message || "unknown error" }}
+  <blockquote class="blockquote" [class.mb-0]="error.status < 400 || error.status > 599">
+    <p class="mb-0">{{ error.message || "unknown error" }}</p>
   </blockquote>
   <p class="mb-0" *ngIf="error.status >= 400 && error.status < 600">
     This may happen when the api token which was used is out of date, deleted or invalid.<br>

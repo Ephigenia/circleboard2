@@ -1,0 +1,8 @@
+// global styles
+.blockquote {
+  border-left: .25rem solid #eceeef;
+  padding: .5rem 1rem;
+}
+.alert-danger .blockquote {
+  border-left-color: #721c24;
+}

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core'; //add this
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
@@ -9,6 +10,8 @@ import { BoardConfigService } from './board-config.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 
