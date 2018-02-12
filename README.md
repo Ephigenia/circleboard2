@@ -85,7 +85,7 @@ Example X config file:
 - [ ] add countdown which shows how many seconds left till next update
 - [x] config page with hint for apiToken as GET parameter
 - [x] review circleCi configuration
-- [ ] option to not color whole tr line
+- [ ] option to not color whole tr line
 - [ ] add CONTRIBUTION files
 - [ ] add PR Request Template
 - [ ] add Issue Request Template
