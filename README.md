@@ -1,6 +1,7 @@
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![CircleCI](https://circleci.com/gh/Ephigenia/circleboard2.svg?style=svg)](https://circleci.com/gh/Ephigenia/circleboard2)
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/circleboard2/badge.svg)](https://snyk.io/test/github/ephigenia/circleboard2)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9758387a89d50689876d/maintainability)](https://codeclimate.com/github/Ephigenia/circleboard2/maintainability)
 
 # Features
 
