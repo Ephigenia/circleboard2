@@ -1,4 +1,4 @@
-Simple angular driven application which shows [circleci] build jobs and workflows in a auto-refreshing, configurable dashboard.
+Simple angular driven application which shows [circleci](https://circleci.com) build jobs and workflows in a auto-refreshing, configurable dashboard.
 
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![CircleCI](https://circleci.com/gh/Ephigenia/circleboard2.svg?style=svg)](https://circleci.com/gh/Ephigenia/circleboard2)
