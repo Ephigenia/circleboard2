@@ -9,6 +9,7 @@ Simple angular driven application which shows [circleci](https://circleci.com) b
 # Features
 
 ![Screenshot of Circleboard in Action from 2018-01-18](https://raw.githubusercontent.com/Ephigenia/circleboard2/master/screenshot.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FEphigenia%2Fcircleboard2.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FEphigenia%2Fcircleboard2?ref=badge_shield)
 
 - refreshing list of all build jobs in order of creation
 - optional grouping of jobs from the same workflow
@@ -91,3 +92,7 @@ Example X config file:
 # https://peter.sh/experiments/chromium-command-line-switches/
 @chromium-browser --noerrdialogs --incognito --disable-infobars --kiosk http://circleboard2.herokuapp.com/?apiToken=<your-api-token>&groupWorkflows=true&refreshInterval=15&fontSize=18
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FEphigenia%2Fcircleboard2.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FEphigenia%2Fcircleboard2?ref=badge_large)
