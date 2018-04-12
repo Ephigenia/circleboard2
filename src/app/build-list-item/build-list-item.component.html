@@ -36,7 +36,7 @@
   <ul class="list-inline" *ngIf="item.jobs">
     <li *ngFor="let job of item.jobs" class="list-inline-item">
       <a href="{{ job.build_url }}" class="badge"
-      title="{{ job.lifecycle}} {{ job.outcome }}"
+      title="#{{ job.build_num}} {{ job.lifecycle}} {{ job.outcome }}"
       [ngClass]="{
         'badge-secondary': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf(job.lifecycle) > -1,
         'badge-primary': ['running'].indexOf(job.lifecycle) > -1,
