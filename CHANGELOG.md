@@ -1,3 +1,48 @@
+<a name="3.0.0-alpha.2"></a>
+# [3.0.0-alpha.2](https://github.com/ephigenia/circleboard2/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2018-05-11)
+
+
+### Bug Fixes
+
+* link to config when api key is not set ([e1524b4](https://github.com/ephigenia/circleboard2/commit/e1524b4))
+* makes routerlink to config absolute ([9e9ae9e](https://github.com/ephigenia/circleboard2/commit/9e9ae9e))
+* makes routerLink to config absolute ([77fd176](https://github.com/ephigenia/circleboard2/commit/77fd176))
+* updates rxjs imports & operators usage ([d346784](https://github.com/ephigenia/circleboard2/commit/d346784))
+* workflow build labels use job id in title ([9e67bae](https://github.com/ephigenia/circleboard2/commit/9e67bae))
+
+
+### Features
+
+* adds app-init loading modal ([8d84f73](https://github.com/ephigenia/circleboard2/commit/8d84f73))
+* adds noscript infotext in the index.html ([e32f780](https://github.com/ephigenia/circleboard2/commit/e32f780))
+
+
+
+<a name="3.0.0-alpha.1"></a>
+# [3.0.0-alpha.1](https://github.com/ephigenia/circleboard2/compare/v2.5.1...v3.0.0-alpha.1) (2018-01-24)
+
+
+### Bug Fixes
+
+* apiKey -> apiToken ([7e9ea9c](https://github.com/ephigenia/circleboard2/commit/7e9ea9c))
+* **build-list:** no padding under job-list ([985d0e9](https://github.com/ephigenia/circleboard2/commit/985d0e9))
+* **build-list:** removes error message on subsequent requests ([b59007b](https://github.com/ephigenia/circleboard2/commit/b59007b))
+* **build-list:** show api error hint only on 400-500 error status codes ([f50d975](https://github.com/ephigenia/circleboard2/commit/f50d975))
+* **recent-builds:** changes empty message ([e7b5e84](https://github.com/ephigenia/circleboard2/commit/e7b5e84))
+* **recent-builds:** continue after http failure ([f74267b](https://github.com/ephigenia/circleboard2/commit/f74267b))
+* **recent-builds:** improves error message display ([a2ba600](https://github.com/ephigenia/circleboard2/commit/a2ba600))
+* **recent-builds:** only show empty message when no error happened ([1e2e05b](https://github.com/ephigenia/circleboard2/commit/1e2e05b))
+
+
+### Features
+
+* inject fontSize, groupWorkflows, refreshInterval via GET param ([d946cd9](https://github.com/ephigenia/circleboard2/commit/d946cd9))
+* workflow grouping, README update for dev version ([5f34e7f](https://github.com/ephigenia/circleboard2/commit/5f34e7f))
+* **build-list:** message when client goes offline ([b523d35](https://github.com/ephigenia/circleboard2/commit/b523d35))
+* **config:** optional grouping of workflows ([8c33d55](https://github.com/ephigenia/circleboard2/commit/8c33d55))
+
+
+
 <a name="2.5.1"></a>
 ## [2.5.1](https://github.com/ephigenia/circleboard2/compare/v2.5.0...v2.5.1) (2017-07-18)
 
