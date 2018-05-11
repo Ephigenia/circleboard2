@@ -78,8 +78,8 @@ workflows:
     jobs:
       - setup
       - lint:
-        requires:
-          - setup
+          requires:
+            - setup
       - e2e:
           requires:
             - setup
