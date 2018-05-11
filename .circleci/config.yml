@@ -69,8 +69,8 @@ jobs:
       - run: npm run dist
       - run: tar cfz "dist.tar.gz" dist
       - store_artifacts:
-        path: ./dist.tar.gz
-        destination: dist
+          path: ./dist.tar.gz
+          destination: dist
 
 workflows:
   version: 2
