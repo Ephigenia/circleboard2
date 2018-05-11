@@ -67,9 +67,9 @@ jobs:
     steps:
       - *attach_workspace
       - run: npm run dist
-      - run: tar cfz "dist.tar.gz" dist
+      - run: tar cfz "circleboard.tar.gz" dist
       - store_artifacts:
-          path: ./dist.tar.gz
+          path: ./circleboard.tar.gz
           destination: dist
 
 workflows:
