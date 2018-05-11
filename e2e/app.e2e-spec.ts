@@ -7,8 +7,8 @@ describe('circleboard3 App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display the application name & version', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getPageTitle()).toEqual('Circleboard 3.0.0-alpha.1');
   });
 });

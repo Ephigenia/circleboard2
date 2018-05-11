@@ -39,6 +39,18 @@ jobs:
           root: ~/repo
           paths: ./*
 
+  e2e:
+    <<: *container_config
+    steps:
+      - *attach_workspace
+      - run: npm run e2e
+
+  lint:
+    <<: *container_config
+    steps:
+      - *attach_workspace
+      - run: npm run lint
+
   test:
     <<: *container_config
     steps:
@@ -50,21 +62,30 @@ jobs:
       - store_test_results:
           path: ./tests/
 
-  lint:
+  dist:
     <<: *container_config
     steps:
       - *attach_workspace
-      - run: npm run lint
-
+      - run: npm run dist
+      - run: tar cfz "dist.tar.gz" dist
+      - store_artifacts:
+        path: ./dist.tar.gz
+        destination: dist
 
 workflows:
   version: 2
   default:
     jobs:
       - setup
+      - lint:
+        requires:
+          - setup
+      - e2e:
+          requires:
+            - setup
       - test:
           requires:
             - setup
-      - lint:
+      - dist:
           requires:
             - setup
