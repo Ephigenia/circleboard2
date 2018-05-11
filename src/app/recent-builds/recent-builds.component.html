@@ -14,7 +14,7 @@
   </blockquote>
   <p class="mb-0" *ngIf="error.status >= 400 && error.status < 600">
     This may happen when the api token which was used is out of date, deleted or invalid.<br>
-    Check the token and try again. <a [routerLink]="['config']">Change API Token in the Configuration</a>.
+    Check the token and try again. <a [routerLink]="['/config']">Change API Token in the Configuration</a>.
   </p>
 </div>
 <ng-container *ngIf="builds">
