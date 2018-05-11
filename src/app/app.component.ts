@@ -1,9 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component } from '@angular/core';
-import { ViewEncapsulation } from '@angular/core';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { take, map, filter } from 'rxjs/operators';
 
 import { BoardConfigService } from './board-config.service';
 
