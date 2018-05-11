@@ -12,7 +12,7 @@ references:
   container_config_browser: &container_config
     docker:
       # https://circleci.com/docs/2.0/circleci-images/#nodejs
-      - image: circleci/node:8.8.1-browsers
+      - image: circleci/node:8.11.1-browsers
     working_directory: ~/repo
   attach_workspace: &attach_workspace
     attach_workspace:
