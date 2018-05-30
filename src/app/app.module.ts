@@ -11,6 +11,7 @@ import { BuildListComponent } from './build-list/build-list.component';
 import { BuildListItemComponent } from './build-list-item/build-list-item.component';
 import { CircleCiService } from './circle-ci.service';
 import { BoardConfigService } from './board-config.service';
+import { GitlabCiService } from './gitlab-ci.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RecentBuildsComponent } from './recent-builds/recent-builds.component';
 
@@ -31,6 +32,7 @@ import { RecentBuildsComponent } from './recent-builds/recent-builds.component';
   ],
   providers: [
     CircleCiService,
+    GitlabCiService,
     BoardConfigService,
   ],
   bootstrap: [AppComponent]
