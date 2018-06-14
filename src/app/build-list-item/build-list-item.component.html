@@ -55,7 +55,19 @@
   <i class="fa fa-user-circle-o" aria-hidden="true" *ngIf="item.committer_name"></i>
   {{ item.committer_name }}
 </td>
-<td *ngIf="item.lifecycle === 'finished'">
+
+<!-- gitlab states -->
+<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'success'">
+  <span class="badge text-uppercase badge-success">{{ item.outcome }}</span>
+</td>
+<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'failed'">
+  <span class="badge text-uppercase badge-danger">{{ item.outcome }}</span>
+</td>
+<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'skipped'">
+  <span class="badge text-uppercase badge-warning">{{ item.outcome }}</span>
+</td>
+
+<td *ngIf="item.source !== 'gitlab' && item.lifecycle === 'finished'">
   <span class="badge text-uppercase"
     [ngClass]="{
       'badge-success': ['success'].indexOf(item.outcome) > -1,
@@ -65,7 +77,7 @@
   {{ item.outcome }}
   </span>
 </td>
-<td *ngIf="item.lifecycle !== 'finished'">
+<td *ngIf="item.source !== 'gitlab' && item.lifecycle !== 'finished'">
   <span class="badge text-uppercase"
     [ngClass]="{
       'badge-secondary': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf(item.lifecycle) > -1,

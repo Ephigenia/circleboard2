@@ -14,6 +14,7 @@ Simple angular driven application which shows [circleci](https://circleci.com) b
 - optional grouping of jobs from the same workflow
 - circleci token stored in localstorage, can also be injected via GET-parameter (`?apiToken=<value>`)
 - inject other config settings via GET parameters (f.e. `?refreshInterval=20&groupWorkflows=true&fontSize=20`)
+- gitlab: add multiple gitlab projects and show them too
 - message when device/client goes offline
 
 Other ideas & planned features can be found in the [wiki](https://github.com/Ephigenia/circleboard2/wiki). If something doesn’t work please [create an issue](https://github.com/ephigenia/circleboard2/issues).

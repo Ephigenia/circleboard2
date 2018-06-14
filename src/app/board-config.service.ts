@@ -10,6 +10,7 @@ export class BoardConfig {
   private _groupWorkflows = false;
   private _refreshInterval = 20;
   private _fontSize = 16;
+  public gitlabProjects = [];
 
   get groupWorkflows() {
     return this._groupWorkflows;
@@ -43,6 +44,20 @@ export class BoardConfig {
     }
   }
 
+  public parseGitLabString(csvString: string): any[] {
+    return decodeURIComponent(csvString)
+      .split(/[\n\r]/)
+      .map(line => line.split(/[,;]/))
+      .filter(v => v && v.length > 1)
+      .map((csvRow) => {
+        return {
+          name: csvRow[0],
+          token: csvRow[1],
+          baseUrl: csvRow[2] || null
+        }
+      });
+  }
+
   public merge(config: object) {
     if (config['groupWorkflows']) {
       this.groupWorkflows = config['groupWorkflows'];
@@ -50,9 +65,14 @@ export class BoardConfig {
     this.refreshInterval = config['refreshInterval'] || this.refreshInterval;
     this.apiToken = config['apiToken'] || this.apiToken;
     this.fontSize = config['fontSize'] || this.fontSize;
+    // convert gitlab csv string
+    if (typeof config['gitlab'] === 'string') {
+      this.gitlabProjects = this.parseGitLabString(config['gitlab']);
+    }
     return this;
   }
 }
+
 
 @Injectable()
 export class BoardConfigService {

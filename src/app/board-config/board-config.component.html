@@ -3,38 +3,16 @@
     <h1>Board-Config</h1>
   </header>
   <section>
+
     <p class="alert alert-info">
       All the configuration variables can be set via GET parameters in the URL.<br>
-      For example: <code>{{baseUrl}}/?refreshInterval=20&fontSize=22</code>
+      For example: <code>{{baseUrl}}/?refreshInterval=20&fontSize=22</code><br>
+      Each config setting contains a short description on how to set it via URL.
     </p>
+
     <form (ngSubmit)="submit()" #configForm="ngForm">
       <fieldset>
-        <div class="form-group">
-          <label for="boardConfigApiToken">
-            CircleCi API-Key
-          </label>
-          <input
-            type="text"
-            name="apiToken"
-            class="form-control"
-            id="boardConfigApiToken"
-            aria-describedby="boardConfigApiTokenHelp"
-            placeholder="enter the api key"
-            [ngClass]="{
-              'form-control': true,
-              'is-invalid': apiToken.invalid,
-              'is-valid': apiToken.valid
-            }"
-            required
-            pattern="[A-Fa-f0-9]{40}"
-            [(ngModel)]="config.apiToken"
-            #apiToken="ngModel"
-            >
-          <small id="boardConfigApiTokenHelp" class="form-text text-muted">
-            Optain a application specific api token in your <a href="https://circleci.com/account/api" target="_blank" rel="external">CircleCi Account Settings</a>.<br>
-            It’s possible ot inject the token value via GET URL parameter: <code>?apiToken=&lt;value&gt;</code>.
-          </small>
-        </div>
+        <legend>General</legend>
         <div class="form-group">
           <label for="boardConfigApiToken">
             Refresh Interval
@@ -74,6 +52,104 @@
             It’s possible ot inject the token value via GET URL parameter. For Example: <code>?groupWorkflows=&lt;yes&gt;</code>.
           </small>
         </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>CircleCi</legend>
+        <div class="form-group">
+          <label for="boardConfigApiToken">
+            CircleCi API-Key
+          </label>
+          <input
+            type="text"
+            name="apiToken"
+            class="form-control"
+            id="boardConfigApiToken"
+            aria-describedby="boardConfigApiTokenHelp"
+            placeholder="enter the api key"
+            [ngClass]="{
+              'form-control': true,
+              'is-invalid': apiToken.invalid,
+              'is-valid': apiToken.valid
+            }"
+            required
+            pattern="[A-Fa-f0-9]{40}"
+            [(ngModel)]="config.apiToken"
+            #apiToken="ngModel"
+            >
+          <small id="boardConfigApiTokenHelp" class="form-text text-muted">
+            Optain a application specific api token in your <a href="https://circleci.com/account/api" target="_blank" rel="external">CircleCi Account Settings</a>.<br>
+            It’s possible ot inject the token value via GET URL parameter: <code>?apiToken=&lt;value&gt;</code>.
+          </small>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <legend>
+          GitLab
+          <button class="btn btn-sm btn-outline-primary" (click)="addEmptyGitlabProject()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </legend>
+        <p class="alert alert-info">
+          Setting the gitlab projects via GET variable is a bit more complicated as each project needs at least
+          the project’s name and an access token defined. Therefore the GET variable works like a csv list of
+          projects.<br>
+          <br>
+          Make sure you encode all entities like line breaks (<code>%0A</code>) and slashes (<code>%2F</code>) properly.<br>
+          <code>?gitlab=org%2Fproject,token,baseUrl%0Aorg%2Fproject,token,baseUrl</code>
+        </p>
+        <!-- one card for the settings of each project -->
+        <div class="card"
+          *ngFor="let gitlabProject of config.gitlabProjects; let i = index;"
+          [class.border-warning]="!(gitlabProject.name && gitlabProject.token)"
+          >
+          <div class="card-header" [class.text-warning]="!(gitlabProject.name && gitlabProject.token)">
+            Project
+            <ul class="pull-right nav nav-pills card-header-pills">
+              <li class="nav-item">
+                <button class="btn btn-sm btn-outline-primary"  (click)="removeGitLabProject(i)">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label>
+                    Project Name
+                  </label>
+                  <input class="form-control" placeholder="project name" type="text"
+                    name="gitlabProjectName{{i}}" [(ngModel)]="config.gitlabProjects[i].name" />
+                  <small class="form-text text-muted">project name including organization and repo name</small>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label>Access-Token</label>
+                  <input class="form-control" placeholder="project" type="text"
+                    name="gitlabProjectToken{{i}}" [(ngModel)]="config.gitlabProjects[i].token" />
+                  <small class="form-text text-muted">
+                    personal access token with the "api" permission generated in <a href="https://gitlab.com/profile/personal_access_tokens">gitlab profile settings</a>
+                  </small>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label>Base-URL</label>
+                  <input class="form-control" placeholder="gitlab baseurl" type="text"
+                    name="gitlabProjectBaseUrl{{i}}" [(ngModel)]="config.gitlabProjects[i].baseUrl" />
+                  <small class="form-text text-muted">base url (defaults to: <code>gitlab.com</code>)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
         <button type="submit" class="btn btn-primary" [disabled]="!configForm.form.valid">
           Save
         </button>
