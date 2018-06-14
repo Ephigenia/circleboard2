@@ -8,9 +8,15 @@ import { BoardConfigService } from '../board-config.service';
 })
 export class NavBarComponent {
 
+  public theme: string;
+
   constructor(
     private configService: BoardConfigService
-  ) { }
+  ) {
+    this.configService.change$.subscribe((config) => {
+      this.theme = config.theme;
+    });
+  }
 
   public increaseFontSize() {
     this.setFontSize(++this.configService.config.fontSize);

@@ -9,4 +9,6 @@ export class BuildListComponent {
 
   @Input() items: Array<any> = [];
 
+  @Input() theme: string;
+
 }

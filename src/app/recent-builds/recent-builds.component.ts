@@ -37,6 +37,8 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
   // subscription for browser on/offline events
   public online$: Observable<boolean>;
 
+  public theme: string;
+
   public ngUnsubscribe: Subject<boolean> = new Subject<boolean>();
 
   constructor(
@@ -59,7 +61,7 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     const config = this.configService.read();
-
+    this.theme = config.theme;
     this.showConfigMessage = !config.apiToken;
 
     if (config.apiToken) {

@@ -16,6 +16,7 @@ Simple angular driven application which shows [circleci](https://circleci.com) b
 - inject other config settings via GET parameters (f.e. `?refreshInterval=20&groupWorkflows=true&fontSize=20`)
 - gitlab: add multiple gitlab projects and show them too
 - message when device/client goes offline
+- optional dark mode
 
 Other ideas & planned features can be found in the [wiki](https://github.com/Ephigenia/circleboard2/wiki). If something doesn’t work please [create an issue](https://github.com/ephigenia/circleboard2/issues).
 

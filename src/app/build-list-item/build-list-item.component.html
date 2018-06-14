@@ -12,7 +12,7 @@
     {{ item.stop_time | date:'MMM/dd HH:mm' }}
   </time>
   <br>
-  <span class="text-muted" *ngIf="item.build_time_millis" title="build took {{ item.build_time_millis / 1000 }}s">
+  <span *ngIf="item.build_time_millis" title="build took {{ item.build_time_millis / 1000 }}s">
     <i class="fa fa-clock-o" aria-hidden="true"></i>
     {{ item.build_time_millis | date:'mm:ss' }}
   </span>
@@ -30,7 +30,7 @@
   </strong>
   <a href="{{ item.build_url }}" *ngIf="item.has_artifacts" target="_blank" title="this build has artifacts, click to open"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
   <br>
-  <span class="text-muted">{{ item.subject }}</span>
+  <span>{{ item.subject }}</span>
 
   <!-- list workflow job items if there are any -->
   <ul class="list-inline" *ngIf="item.jobs">

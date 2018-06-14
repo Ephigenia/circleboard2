@@ -1,4 +1,7 @@
-<nav class="navbar navbar-fixed-top navbar-light bg-light">
+<nav class="navbar navbar-fixed-top navbar-light bg-light" [ngClass]="{
+  'navbar-dark': theme === 'dark',
+  'bg-dark': theme === 'dark'
+}">
   <span class="navbar-brand mb-0 h1" [routerLink]="['/']">CircleBoard 3.0.0-alpha.3</span>
 
   <div class="text-right">

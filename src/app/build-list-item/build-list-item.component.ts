@@ -19,24 +19,37 @@ export class BuildListItemComponent implements OnChanges {
 
   @Input() item: any = {};
 
-  @HostBinding('class.table-danger')
-    danger = false;
-  @HostBinding('class.table-primary')
-    active = false;
+  @Input() theme: string;
+
+  @HostBinding('class') classes:string[] = [];
 
   public committerTitle: string;
 
   constructor(
-    private date: DatePipe
+    private date: DatePipe,
   ) { }
 
   public ngOnChanges(changes: SimpleChanges) {
     this.committerTitle = this.buildCommitterTitle(changes.item.currentValue);
+
+    let danger, active;
     if (this.item && this.item.outcome === BUILD_OUTCOME.FAILED) {
-      this.danger = true;
+      danger = true;
     }
     if (this.item && this.item.lifecycle === BUILD_LIFECYCLE.RUNNING) {
-      this.active = true;
+      active = true;
+    }
+
+    this.classes = [];
+    let prefix = 'table';
+    if (this.theme === 'dark') {
+      prefix = 'bg';
+    }
+    if (danger) {
+      this.classes.push(`${prefix}-danger`);
+    }
+    if (active) {
+      this.classes.push(`${prefix}-primary`);
     }
   }
 

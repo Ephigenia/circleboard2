@@ -18,7 +18,7 @@
   </p>
 </div>
 <ng-container *ngIf="builds">
-  <app-build-list [items]="builds" *ngIf="builds.length"></app-build-list>
+  <app-build-list [theme]="theme" [items]="builds" *ngIf="builds.length"></app-build-list>
   <div *ngIf="!builds.length && !error" class="alert alert-warning" role="alert">
     Right now there are no builds to display.
   </div>

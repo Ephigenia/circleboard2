@@ -12,6 +12,8 @@ export class BoardConfig {
   private _fontSize = 16;
   public gitlabProjects = [];
 
+  public theme = 'dark';
+
   get groupWorkflows() {
     return this._groupWorkflows;
   }
@@ -65,6 +67,7 @@ export class BoardConfig {
     this.refreshInterval = config['refreshInterval'] || this.refreshInterval;
     this.apiToken = config['apiToken'] || this.apiToken;
     this.fontSize = config['fontSize'] || this.fontSize;
+    this.theme = config['theme'] || this.theme;
     // convert gitlab csv string
     if (typeof config['gitlab'] === 'string') {
       this.gitlabProjects = this.parseGitLabString(config['gitlab']);
