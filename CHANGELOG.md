@@ -1,10 +1,11 @@
-<a name="3.0.0-alpha.3"></a>
-# [3.0.0-alpha.3](https://github.com/ephigenia/circleboard2/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2018-06-14)
+<a name="3.0.0-alpha.4"></a>
+# [3.0.0-alpha.4](https://github.com/ephigenia/circleboard2/compare/v3.0.0-alpha.2...v3.0.0-alpha.4) (2018-06-14)
 
 
 ### Features
 
 * adds multiple gitlab projects support ([471f277](https://github.com/ephigenia/circleboard2/commit/471f277))
+* adds optional dark mode ([f2827d4](https://github.com/ephigenia/circleboard2/commit/f2827d4))
 * dockerized repo ([aa389c0](https://github.com/ephigenia/circleboard2/commit/aa389c0))
 
 

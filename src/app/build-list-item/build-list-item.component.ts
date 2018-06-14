@@ -21,7 +21,7 @@ export class BuildListItemComponent implements OnChanges {
 
   @Input() theme: string;
 
-  @HostBinding('class') classes:string[] = [];
+  @HostBinding('class') classes: string[] = [];
 
   public committerTitle: string;
 
