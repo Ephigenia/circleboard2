@@ -10,11 +10,14 @@ import { GitLabProjectListItem } from './../gitlab-ci.service';
 export class BoardConfigComponent {
 
   public config: BoardConfig;
+  // url shown in the config help messages
+  public baseUrl: string;
 
   public constructor(
     private configService: BoardConfigService
   ) {
     this.config = this.configService.read();
+    this.baseUrl = `${window.location.origin}`;
   }
 
   public submit() {
@@ -24,7 +27,7 @@ export class BoardConfigComponent {
   public addEmptyGitlabProject() {
     let template = <GitLabProjectListItem>{
       name: '',
-      token:'',
+      token: '',
       baseUrl: ''
     };
     if (this.config.gitlabProjects.length) {

@@ -1,3 +1,14 @@
+<a name="3.0.0-alpha.3"></a>
+# [3.0.0-alpha.3](https://github.com/ephigenia/circleboard2/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2018-06-14)
+
+
+### Features
+
+* adds multiple gitlab projects support ([471f277](https://github.com/ephigenia/circleboard2/commit/471f277))
+* dockerized repo ([aa389c0](https://github.com/ephigenia/circleboard2/commit/aa389c0))
+
+
+
 <a name="3.0.0-alpha.2"></a>
 # [3.0.0-alpha.2](https://github.com/ephigenia/circleboard2/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2018-05-11)
 

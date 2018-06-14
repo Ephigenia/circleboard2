@@ -54,7 +54,7 @@ export class BoardConfig {
           name: csvRow[0],
           token: csvRow[1],
           baseUrl: csvRow[2] || null
-        }
+        };
       });
   }
 

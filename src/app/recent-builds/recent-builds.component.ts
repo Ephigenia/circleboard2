@@ -85,7 +85,7 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
             requestList.push(
               this.gitlabci.getProjectBuilds(project.name, project.token, project.baseUrl)
             );
-          })
+          });
 
           return combineLatest(requestList);
         }),

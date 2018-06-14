@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface GitLabProjectListItem {
-  name: string,
-  token: string,
-  baseUrl: string|null,
+  name: string;
+  token: string;
+  baseUrl: string|null;
 }
 
 @Injectable()
@@ -37,7 +37,8 @@ export class GitlabCiService {
     return this.http.get(url, options).pipe(
       map((builds: any[]) => {
         return builds.map((build) => this.transformBuild(build, project, baseUrl));
-      }));
+      })
+    );
   }
 
   public transformBuild(build, project, baseUrl) {
