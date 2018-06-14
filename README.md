@@ -23,6 +23,19 @@ Other ideas & planned features can be found in the [wiki](https://github.com/Eph
 
 The latest version of this is running on https://circleboard2.herokuapp.com/ where you can set you own [CircleCi API Token](https://circleci.com/account/api) using the gear icon in the main navigation bar and use it as your dashboard.
 
+# docker
+
+Requires docker 1.17 or later.
+Build docker container with production ready code
+
+    docker build --no-cache --pull -t circleboard:latest .
+
+Start docker container
+
+    docker run -it --rm --publish 4000:80 circleboard:latest
+
+Then your docker container is available at http://localhost:4000
+
 
 # Deployment
 
