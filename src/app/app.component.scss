@@ -6,3 +6,29 @@
 .alert-danger .blockquote {
   border-left-color: #721c24;
 }
+
+
+// the background colors of table rows in combination with the standard
+// badge styles would make the badges almost invisible, therefore there are
+// additional darker background styles for the badges
+tr.bg-danger {
+  .badge-danger {
+    background-color: #96222e;
+  }
+  a {
+    color: #fff;
+  }
+}
+tr.bg-warning {
+  .badge-warning {
+    background-color: #ca9700;
+  }
+}
+tr.bg-primary {
+  .badge-primary {
+    background-color: #005cbf;
+  }
+  a {
+    color: #fff;
+  }
+}
