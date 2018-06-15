@@ -8,7 +8,7 @@ Simple, responsive [angular6](https://angular.io/) web-application which shows [
 
 Features
 -------------------------------------------------------------------------------
-![Screenshot of Circleboard (dark mode) in Action from 2018-06-15](https://raw.githubusercontent.com/Ephigenia/circleboard2/master/screenshot_dark.png)
+![Screenshot of Circleboard (dark mode) in Action from 2018-06-15](https://raw.githubusercontent.com/Ephigenia/circleboard2/development/screenshot_dark.png)
 
 - show builds from different circleci accounts and gitlab projects
 - zero configuration files
