@@ -44,10 +44,10 @@
         'badge-secondary': ['queued', 'scheduled', 'not_run', 'not_running'].indexOf(job.lifecycle) > -1,
         'badge-primary': ['running'].indexOf(job.lifecycle) > -1,
         'badge-success': ['success'].indexOf(job.outcome) > -1,
-        'badge-warning': ['canceled', 'no_tests'].indexOf(job.outcome) > -1,
+        'badge-warning': ['skipped', 'canceled', 'no_tests'].indexOf(job.outcome) > -1,
         'badge-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf(job.outcome) > -1
       }">
-        {{job.workflows.job_name}}
+        {{ job.job_name}}
         <i *ngIf="job.has_artifacts" class="fa fa-paperclip" aria-hidden="true"></i>
       </a>
     </li>
@@ -69,12 +69,19 @@
 <td *ngIf="item.source === 'gitlab' && item.lifecycle === 'skipped'">
   <span class="badge text-uppercase badge-warning">{{ item.outcome }}</span>
 </td>
+<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'canceled'">
+  <span class="badge text-uppercase badge-info">{{ item.outcome }}</span>
+</td>
+<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'running'">
+  <span class="badge text-uppercase badge-primary">{{ item.outcome }}</span>
+</td>
 
 <td *ngIf="item.source !== 'gitlab' && item.lifecycle === 'finished'">
   <span class="badge text-uppercase"
     [ngClass]="{
       'badge-success': ['success'].indexOf(item.outcome) > -1,
-      'badge-warning': ['canceled', 'no_tests'].indexOf(item.outcome) > -1,
+      'badge-warning': ['no_tests'].indexOf(item.outcome) > -1,
+      'badge-info': ['canceled'].indexOf(item.outcome) > -1,
       'badge-danger': ['failed', 'infrastructure_fail', 'timedout'].indexOf(item.outcome) > -1
     }">
   {{ item.outcome }}
