@@ -41,6 +41,27 @@ export class GitlabCiService {
     );
   }
 
+  public groupBuildsByPipeline(builds) {
+    const groupedBuilds = builds.reduce((acc, build) => {
+      if (!build.pipeline || !build.pipeline.id) {
+        acc.push(build);
+        return acc;
+      }
+
+      // find all builds that belong to that pipeline
+      const pipelineJobs = builds.filter(b => b.pipeline && b.pipeline.id === build.pipeline.id);
+      build.jobs = pipelineJobs;
+
+      // don’t add if allready added
+      if (acc.some(b => b.pipeline && b.pipeline.id === build.pipeline.id)) return acc;
+
+      acc.push(build);
+      return acc;
+    }, []);
+
+    return groupedBuilds;
+  }
+
   public transformBuild(build, project, baseUrl) {
     return {
       source: 'gitlab',
@@ -52,6 +73,7 @@ export class GitlabCiService {
       outcome: build.status,
       lifecycle: build.status,
       compare: '',
+      job_name: build.name,
       build_url: '',
       vcs_url: '',
       reponame: project,
@@ -60,6 +82,7 @@ export class GitlabCiService {
       committer_email: build.commit.committer_email,
       committer_name: build.commit.committer_name,
       committer_date: build.commit.committer_date,
+      pipeline: build.pipeline,
     };
   }
 

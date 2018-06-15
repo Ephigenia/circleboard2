@@ -97,7 +97,9 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
 
           if (config.groupWorkflows) {
             results = this.circleci.groupByWorkflows(results);
+            results = this.gitlabci.groupBuildsByPipeline(results);
           }
+
           // sort results by start_time or created_at
           const allBuilds = results.sort((a, b) => {
             const date1 = new Date(a.start_time || a.created_at);
