@@ -5,6 +5,9 @@
   <time *ngIf="!item.stop_time && !item.start_time" title="Build has been triggered, but not yet started.">
     {{ item.author_date | date: 'MMM/dd HH:mm' }}
   </time>
+  <time *ngIf="!item.stop_time && !item.start_time && item.created_at" [attr.datetime]="item.created_at" title="Build was created {{ item.created_at | date:'medium' }}">
+    {{ item.created_at | date:'MMM/dd HH:mm' }}
+  </time>
   <time *ngIf="!item.stop_time && item.start_time" [attr.datetime]="item.start_time" title="Build started {{ item.start_time | date:'medium' }}">
     {{ item.start_time | date:'MMM/dd HH:mm' }}
   </time>
