@@ -24,34 +24,34 @@ describe('GitlabCiService', () => {
       {
         id: 1,
         name: 'test:security',
-        status: "skipped",
+        status: 'skipped',
         pipeline: {
           id: 1,
-          status: "failed"
+          status: 'failed'
         }
       },
       {
         id: 2,
-        status: "skipped",
+        status: 'skipped',
         name: 'test:outdated',
         pipeline: {
           id: 1,
-          status: "failed"
+          status: 'failed'
         }
       },
       {
         id: 3,
-        status: "skipped",
+        status: 'skipped',
         name: 'build',
         pipeline: {
           id: 1,
-          status: "failed"
+          status: 'failed'
         }
       },
       {
         id: 5,
-        status: "finished",
-        name: "all",
+        status: 'finished',
+        name: 'all',
 
       }
     ];

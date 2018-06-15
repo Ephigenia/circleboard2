@@ -53,7 +53,7 @@ export class GitlabCiService {
       build.jobs = pipelineJobs;
 
       // don’t add if allready added
-      if (acc.some(b => b.pipeline && b.pipeline.id === build.pipeline.id)) return acc;
+      if (acc.some(b => b.pipeline && b.pipeline.id === build.pipeline.id)) { return acc; }
 
       acc.push(build);
       return acc;

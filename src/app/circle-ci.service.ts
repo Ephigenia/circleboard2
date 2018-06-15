@@ -54,11 +54,11 @@ export class CircleCiService {
         .filter(b => b.workflows)
         .find(b => b.workflows.workflow_id === build.workflows.workflow_id);
       workflowBuild.jobs = workflowBuild.jobs || [];
+      workflowBuild.jobs.push(build);
       // add job_name to each build from the workflow
-      workflowBuild.jobs.forEach(b => {
+      workflowBuild.jobs.filter(b => !b.job_name).forEach(b => {
         b.job_name = b.workflows.job_name;
       });
-      workflowBuild.jobs.push(build);
 
       if (acc.indexOf(workflowBuild) === -1) {
         acc.push(workflowBuild);
