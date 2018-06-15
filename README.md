@@ -76,11 +76,23 @@ Just change the x startup configuration as follows:
 # hide cursor
 # requires "unclutter" to be installed
 #   sudo apt-get install unclutter
-@unclutter -idle 0
+# hide for 3 seconds inactivity
+@unclutter -display :0 -idle 3 -root -noevents
 
 # read about supported comamnd line arguemnts:
 # https://peter.sh/experiments/chromium-command-line-switches/
 @chromium-browser --noerrdialogs --incognito --disable-infobars --kiosk http://circleboard2.herokuapp.com/?apiToken=<your-api-token>&groupWorkflows=true&refreshInterval=15&fontSize=18
+```
+
+Rotation of the screen can also be set to be able to show builds in portrait mode
+
+```
+# /boot/config.txt
+# only works when "legacy" screen driver was selected, doesn’t work
+# when dtoverlay=vc4-kms-v3d is set, rotate 90° clockwise
+display_rotate=1
+# or with newer firmware
+display_hdmi_rotate=1
 ```
 
 
