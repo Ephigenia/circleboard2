@@ -75,6 +75,9 @@
 <td *ngIf="item.source === 'gitlab' && item.lifecycle === 'running'">
   <span class="badge text-uppercase badge-primary">{{ item.outcome }}</span>
 </td>
+<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'created'">
+  <span class="badge text-uppercase badge-secondary">{{ item.outcome }}</span>
+</td>
 
 <td *ngIf="item.source !== 'gitlab' && item.lifecycle === 'finished'">
   <span class="badge text-uppercase"
