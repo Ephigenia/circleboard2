@@ -48,14 +48,23 @@ export class GitlabCiService {
         return acc;
       }
 
-      // find all builds that belong to that pipeline
-      const pipelineJobs = builds.filter(b => b.pipeline && b.pipeline.id === build.pipeline.id);
-      build.jobs = pipelineJobs;
+      // create a pipeline that contains all "jobs" which belong to it
+      const pipeline = Object.assign({}, build);
+      pipeline.status = pipeline.outcome = pipeline.lifecycle = build.pipeline.status;
+      pipeline.jobs = builds
+        .filter(b => b.pipeline && b.pipeline.id === build.pipeline.id)
+        .sort((a, b) => {
+          if (!a.created_at) return -1;
+          if (b.created_at) return 1;
+          return a.created_at.getTime() - b.created.at.getTime();
+        });
 
-      // don’t add if allready added
-      if (acc.some(b => b.pipeline && b.pipeline.id === build.pipeline.id)) { return acc; }
-
-      acc.push(build);
+      // add the pipeline instead of the build to the result array, but only
+      // when it’s not allready added
+      if (acc.some(b => b.pipeline && b.pipeline.id === build.pipeline.id)) {
+        return acc;
+      }
+      acc.push(pipeline);
       return acc;
     }, []);
 
@@ -64,17 +73,18 @@ export class GitlabCiService {
 
   public transformBuild(build, project, baseUrl) {
     return {
+      id: build.id,
       source: 'gitlab',
       vcs_revision: build.commit.id,
-      created_at: build.created_at,
-      start_time: build.started_at,
-      stop_time: build.finished_at,
+      created_at: build.created_at ? new Date(build.created_at) : null,
+      start_time: build.started_at ? new Date(build.started_at) : null,
+      stop_time: build.finished_at ? new Date(build.finished_at) : null,
       build_time_millis: build.duration * 1000,
       outcome: build.status,
       lifecycle: build.status,
       compare: '',
       job_name: build.name,
-      build_url: '',
+      build_url: baseUrl + '/' + project + '-/jobs/' + build.id,
       vcs_url: '',
       reponame: project,
       build_num: build.id,

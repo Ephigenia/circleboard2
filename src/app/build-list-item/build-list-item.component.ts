@@ -32,12 +32,11 @@ export class BuildListItemComponent implements OnChanges {
   public ngOnChanges(changes: SimpleChanges) {
     this.committerTitle = this.buildCommitterTitle(changes.item.currentValue);
 
-    let danger, active;
-    if (this.item && this.item.outcome === BUILD_OUTCOME.FAILED) {
-      danger = true;
-    }
-    if (this.item && this.item.lifecycle === BUILD_LIFECYCLE.RUNNING) {
-      active = true;
+    let danger = false, active = false;
+
+    if (this.item) {
+      danger = this.item.outcome === BUILD_OUTCOME.FAILED;
+      active = this.item.lifecycle === BUILD_LIFECYCLE.RUNNING
     }
 
     this.classes = [];

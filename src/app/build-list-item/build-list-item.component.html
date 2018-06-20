@@ -60,23 +60,16 @@
 </td>
 
 <!-- gitlab states -->
-<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'success'">
-  <span class="badge text-uppercase badge-success">{{ item.outcome }}</span>
-</td>
-<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'failed'">
-  <span class="badge text-uppercase badge-danger">{{ item.outcome }}</span>
-</td>
-<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'skipped'">
-  <span class="badge text-uppercase badge-warning">{{ item.outcome }}</span>
-</td>
-<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'canceled'">
-  <span class="badge text-uppercase badge-info">{{ item.outcome }}</span>
-</td>
-<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'running'">
-  <span class="badge text-uppercase badge-primary">{{ item.outcome }}</span>
-</td>
-<td *ngIf="item.source === 'gitlab' && ['pending', 'created'].indexOf(item.lifecycle) > -1">
-  <span class="badge text-uppercase badge-secondary">{{ item.outcome }}</span>
+<td *ngIf="item.source === 'gitlab'">
+  <span class="badge text-uppercase"
+    [ngClass]="{
+      'badge-success': ['success'].indexOf(item.outcome) > -1,
+      'badge-danger': ['failed'].indexOf(item.outcome) > -1,
+      'badge-info': ['skipped'].indexOf(item.outcome) > -1,
+      'badge-warning': ['canceled'].indexOf(item.outcome) > -1,
+      'badge-primary': ['running'].indexOf(item.outcome) > -1,
+      'badge-secondary': ['created', 'pending'].indexOf(item.outcome) > -1
+    }">{{ item.outcome }}</span>
 </td>
 
 <td *ngIf="item.source !== 'gitlab' && item.lifecycle === 'finished'">

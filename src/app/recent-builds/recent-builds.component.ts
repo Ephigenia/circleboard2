@@ -96,8 +96,8 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
           results = [].concat.apply([], results);
 
           if (config.groupWorkflows) {
-            results = this.circleci.groupByWorkflows(results);
             results = this.gitlabci.groupBuildsByPipeline(results);
+            results = this.circleci.groupByWorkflows(results);
           }
 
           // sort results by start_time or created_at
