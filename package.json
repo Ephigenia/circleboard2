@@ -50,7 +50,7 @@
     "preversion": "npm test",
     "start": "ng serve",
     "start:heroku": "http-server dist -c-1",
-    "test": "ng test --code-coverage",
+    "test": "ng test --code-coverage --watch=false",
     "tdd": "ng test --watch",
     "update": "npm-check --update --specials=bin",
     "version": "npm run changelog && git add CHANGELOG.md",
