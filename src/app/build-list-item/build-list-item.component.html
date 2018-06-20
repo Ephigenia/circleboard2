@@ -75,7 +75,7 @@
 <td *ngIf="item.source === 'gitlab' && item.lifecycle === 'running'">
   <span class="badge text-uppercase badge-primary">{{ item.outcome }}</span>
 </td>
-<td *ngIf="item.source === 'gitlab' && item.lifecycle === 'created'">
+<td *ngIf="item.source === 'gitlab' && ['pending', 'created'].indexOf(item.lifecycle) > -1">
   <span class="badge text-uppercase badge-secondary">{{ item.outcome }}</span>
 </td>
 
