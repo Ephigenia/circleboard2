@@ -25,10 +25,53 @@ describe('BoardConfig', () => {
         config.groupWorkflows = 'no';
         expect(config.groupWorkflows).toBeFalsy();
       });
-    });
-  });
-  describe('merge', () => {
+    }); // groupworkflows
 
+    describe('timeout', () => {
+      it('cannot be larger than refreshInterval', () => {
+        config.refreshInterval = 10;
+        config.timeout = 11;
+        expect(config.timeout).toEqual(10);
+      });
+      it('cannot be smaller than 1', () => {
+        config.timeout = 0;
+        expect(config.timeout).toEqual(1);
+      });
+    }); // timeout
+
+    describe('refreshInterval', () => {
+      it('cannot be lower than 10', () => {
+        config.refreshInterval = 2;
+        expect(config.refreshInterval).toEqual(10);
+      });
+      it('can be a float', () => {
+        config.refreshInterval = 13.1;
+        expect(config.refreshInterval).toEqual(13.1);
+      });
+      it('cannot be larger than 3600', () => {
+        config.refreshInterval = 3601;
+        expect(config.refreshInterval).toEqual(3600);
+      });
+    }); // refreshInterval
+
+    describe('font-size', () => {
+      it('cannot be lower than 8', () => {
+        config.fontSize = 2;
+        expect(config.fontSize).toEqual(8);
+      });
+      it('cannot be a fractional number', () => {
+        config.fontSize = 9.2;
+        expect(config.fontSize).toEqual(9);
+      });
+      it('cannot be larger than 32', () => {
+        config.fontSize = 829;
+        expect(config.fontSize).toEqual(32);
+      });
+    }); // font-size
+
+  }); // properties
+
+  describe('merge', () => {
     it('converts the gitlab string to single project configs', () => {
       const csv = 'org/project,token,,%0Aorg2/project2,token2,baseUrl,%0A';
       config.merge({ gitlab: csv });

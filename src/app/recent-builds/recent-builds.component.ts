@@ -16,7 +16,11 @@ import {
   merge,
   retryWhen,
   takeUntil,
+  timeout,
 } from 'rxjs/operators';
+// import {
+//   TimeoutError
+// } from 'rxjs';
 
 import { CircleCiService } from './../circle-ci.service';
 import { GitlabCiService, GitLabProjectListItem } from './../gitlab-ci.service';
@@ -88,8 +92,7 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
               this.gitlabci.getProjectBuilds(project.name, project.token, project.baseUrl)
             );
           });
-
-          return combineLatest(requestList);
+          return combineLatest(requestList).pipe(timeout(config.timeout * 1000));
         }),
         map((results) => {
           // flatten the array of builds
