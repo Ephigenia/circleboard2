@@ -54,8 +54,8 @@ export class GitlabCiService {
       pipeline.jobs = builds
         .filter(b => b.pipeline && b.pipeline.id === build.pipeline.id)
         .sort((a, b) => {
-          if (!a.created_at) return -1;
-          if (b.created_at) return 1;
+          if (!a.created_at) { return -1; }
+          if (b.created_at) { return 1; }
           return a.created_at.getTime() - b.created.at.getTime();
         });
 

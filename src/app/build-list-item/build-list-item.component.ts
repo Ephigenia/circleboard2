@@ -36,7 +36,7 @@ export class BuildListItemComponent implements OnChanges {
 
     if (this.item) {
       danger = this.item.outcome === BUILD_OUTCOME.FAILED;
-      active = this.item.lifecycle === BUILD_LIFECYCLE.RUNNING
+      active = this.item.lifecycle === BUILD_LIFECYCLE.RUNNING;
     }
 
     this.classes = [];
