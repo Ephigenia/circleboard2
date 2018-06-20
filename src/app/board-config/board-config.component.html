@@ -107,8 +107,11 @@
           the project’s name and an access token defined. Therefore the GET variable works like a csv list of
           projects.<br>
           <br>
+          Also note that there’s a request made for each project and that there’s a undocumented rate limit on gitlab’s side.
+          Please increase the refresh interval (above) when you encounter http error messages.<br>
+          <br>
           Make sure you encode all entities like line breaks (<code>%0A</code>) and slashes (<code>%2F</code>) properly.<br>
-          <code>?gitlab=org%2Fproject,token,baseUrl%0Aorg%2Fproject,token,baseUrl</code>
+          For example: <code>?gitlab=my-organization%2Fcool-project-name,token,baseUrl%0Aorg%2Fproject,token,baseUrl</code>
         </p>
         <!-- one card for the settings of each project -->
         <div class="card"
