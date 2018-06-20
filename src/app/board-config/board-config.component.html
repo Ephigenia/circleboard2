@@ -98,7 +98,10 @@
       <fieldset class="form-group">
         <legend>
           GitLab
-          <button class="btn btn-sm btn-outline-primary" (click)="addEmptyGitlabProject()">
+          <button
+            class="btn btn-sm btn-outline-primary"
+            title="add another gitlab project configuration block"
+            (click)="addEmptyGitlabProject()">
             <i class="fa fa-plus"></i>
           </button>
         </legend>
@@ -122,7 +125,7 @@
             Project
             <ul class="pull-right nav nav-pills card-header-pills">
               <li class="nav-item">
-                <button class="btn btn-sm btn-outline-primary"  (click)="removeGitLabProject(i)">
+                <button class="btn btn-sm btn-outline-primary" (click)="removeGitLabProject(i)" title="remove the project &quot;{{ gitlabProject.name }}&quot;">
                   <i class="fa fa-minus"></i>
                 </button>
               </li>
