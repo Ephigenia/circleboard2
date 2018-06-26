@@ -24,7 +24,7 @@
   <a href="{{ item.compare }}" target="_blank" title="Open the changes on github">
     <code *ngIf="item.vcs_revision">{{ item.vcs_revision.substr(0,7) }}</code>
   </a><br>
-  <a href="{{ item.build_url }}" target="_blank" title="the build number, click to open the build on circleci">#{{ item.build_num }}</a>
+  <a href="{{ item.build_url }}" target="_blank" title="the build number, click to open the build on circleci">#{{ item.build_num || item.id }}</a>
 </td>
 <td>
   <strong>
