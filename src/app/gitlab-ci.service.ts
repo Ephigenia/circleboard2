@@ -70,8 +70,6 @@ export class GitlabCiService {
       return acc;
     }, []);
 
-    console.log(groupedBuilds.filter(b => b.source === 'gitlab'));
-
     return groupedBuilds;
   }
 
