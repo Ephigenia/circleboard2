@@ -66,62 +66,64 @@ export class RecentBuildsComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     const config = this.configService.read();
     this.theme = config.theme;
-    this.showConfigMessage = !config.apiToken;
+    this.showConfigMessage = !config.apiToken && !config.gitlabProjects;
 
-    if (config.apiToken) {
-      // create timer which emits a number every config interval setting seconds
-      const timer$ = timer(0, config.refreshInterval * 1000);
-
-      // listen to online/offline and timer emits
-      this.builds$ = combineLatest([this.online$, timer$]).pipe(
-        // stop when component was destroyed
-        takeUntil(this.ngUnsubscribe),
-        // only continue when browser is online, otherwise stop here
-        // also restart syncing everytime browser goes online again
-        skipWhile(val => !val[0]),
-        flatMap(() => {
-          delete this.error;
-
-          const requestList = [];
-          if (config.apiToken) {
-            requestList.push(this.circleci.getRecentBuilds(config.apiToken, 50));
-          }
-          // gitlab projects, one request per project
-          config.gitlabProjects.forEach(project => {
-            requestList.push(
-              this.gitlabci.getProjectBuilds(project.name, project.token, project.baseUrl)
-            );
-          });
-          return combineLatest(requestList).pipe(timeout(config.timeout * 1000));
-        }),
-        map((results) => {
-          // flatten the array of builds
-          results = [].concat.apply([], results);
-
-          if (config.groupWorkflows) {
-            results = this.circleci.groupByWorkflows(results);
-            results = this.gitlabci.groupBuildsByPipeline(results);
-          }
-
-          // sort results by start_time or created_at
-          const allBuilds = results.sort((a, b) => {
-            const date1 = new Date(a.start_time || a.created_at);
-            const date2 = new Date(b.start_time || b.created_at);
-            return date2.getTime() - date1.getTime();
-          });
-
-          return allBuilds;
-        }),
-        retryWhen(errors => errors.pipe(
-          map(error => {
-            this.error = error;
-            return error;
-          }),
-          delay(config.refreshInterval * 1000)
-        ))
-      );
-      this.builds$.subscribe((builds: any[]) => this.builds = builds);
+    if (this.showConfigMessage) {
+      return;
     }
+
+    // create timer which emits a number every config interval setting seconds
+    const timer$ = timer(0, config.refreshInterval * 1000);
+
+    // listen to online/offline and timer emits
+    this.builds$ = combineLatest([this.online$, timer$]).pipe(
+      // stop when component was destroyed
+      takeUntil(this.ngUnsubscribe),
+      // only continue when browser is online, otherwise stop here
+      // also restart syncing everytime browser goes online again
+      skipWhile(val => !val[0]),
+      flatMap(() => {
+        delete this.error;
+
+        const requestList = [];
+        if (config.apiToken) {
+          requestList.push(this.circleci.getRecentBuilds(config.apiToken, 50));
+        }
+        // gitlab projects, one request per project
+        config.gitlabProjects.forEach(project => {
+          requestList.push(
+            this.gitlabci.getProjectBuilds(project.name, project.token, project.baseUrl)
+          );
+        });
+        return combineLatest(requestList).pipe(timeout(config.timeout * 1000));
+      }),
+      map((results) => {
+        // flatten the array of builds
+        results = [].concat.apply([], results);
+
+        if (config.groupWorkflows) {
+          results = this.circleci.groupByWorkflows(results);
+          results = this.gitlabci.groupBuildsByPipeline(results);
+        }
+
+        // sort results by start_time or created_at
+        const allBuilds = results.sort((a, b) => {
+          const date1 = new Date(a.start_time || a.created_at);
+          const date2 = new Date(b.start_time || b.created_at);
+          return date2.getTime() - date1.getTime();
+        });
+
+        return allBuilds;
+      }),
+      retryWhen(errors => errors.pipe(
+        map(error => {
+          this.error = error;
+          return error;
+        }),
+        delay(config.refreshInterval * 1000)
+      ))
+    );
+    this.builds$.subscribe((builds: any[]) => this.builds = builds);
   }
 
   public ngOnDestroy() {
