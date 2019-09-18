@@ -83,7 +83,6 @@
               'is-invalid': apiToken.invalid,
               'is-valid': apiToken.valid
             }"
-            required
             pattern="[A-Fa-f0-9]{40}"
             [(ngModel)]="config.apiToken"
             #apiToken="ngModel"
@@ -140,7 +139,7 @@
                   </label>
                   <input class="form-control" placeholder="project name" type="text"
                     name="gitlabProjectName{{i}}" [(ngModel)]="config.gitlabProjects[i].name" />
-                  <small class="form-text text-muted">project name including organization and repo name</small>
+                  <small class="form-text text-muted">project name f.e. <code>group/frontend-app</code> including organization and repo name</small>
                 </div>
               </div>
               <div class="col">
@@ -158,7 +157,7 @@
                   <label>Base-URL</label>
                   <input class="form-control" placeholder="gitlab baseurl" type="text"
                     name="gitlabProjectBaseUrl{{i}}" [(ngModel)]="config.gitlabProjects[i].baseUrl" />
-                  <small class="form-text text-muted">base url (defaults to: <code>gitlab.com</code>)</small>
+                  <small class="form-text text-muted">base url to the gitlab server, including schema, trailing slashes will be removed (defaults to: <code>https://gitlab.com</code>)</small>
                 </div>
               </div>
             </div>

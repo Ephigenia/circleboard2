@@ -23,12 +23,14 @@ export class GitlabCiService {
     baseUrl: string = ''
   ) {
     if (!baseUrl) {
-      baseUrl = 'https://gitlab.com/api/v4/projects';
+      baseUrl = 'https://gitlab.com';
     }
+    // remove trailing slash from base Url
+    baseUrl = baseUrl.replace(/\/$/, '');
     if (!token) {
       throw new Error('gitlab ci requires token to be working');
     }
-    const url = [baseUrl, encodeURIComponent(project), 'jobs'].join('/');
+    const url = [baseUrl, 'api/v4/projects', encodeURIComponent(project), 'jobs'].join('/');
     const options = {
       headers: {
         'PRIVATE-TOKEN': token
